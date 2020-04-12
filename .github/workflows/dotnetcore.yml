@@ -40,7 +40,7 @@ jobs:
         buildCommand: dotnet build . --configuration Debug
         testCommand: dotnet test . --configuration Debug --verbosity normal --collect:"XPlat code coverage" --settings tests/.runsettings
         projectKey: ${{ secrets.SONAR_PROJECT_KEY }}
-        projectName: fake-xrm-easy-core
+        projectName: fake-xrm-easy-abstractions
         sonarOrganisation: dynamicsvalue
         beginArguments: >
             /d:sonar.verbose="true"
