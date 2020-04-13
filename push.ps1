@@ -3,6 +3,7 @@ param (
     [string]$versionSuffix = ""
  )
 
+$project = "FakeXrmEasy.Abstractions"
 
 Write-Host "Running with packageSource '$($packageSource)' and versionSuffix '$($versionSuffix)'..."
 
@@ -22,14 +23,19 @@ Get-ChildItem -Path $tempNupkgFolder -Include *.* -File -Recurse | ForEach-Objec
 Write-Host "Packing assembly..."
 if($versionSuffix -eq "") 
 {
-    dotnet pack -o $tempNupkgFolder src/FakeXrmEasy.Abstractions/FakeXrmEasy.Abstractions.csproj
+    dotnet pack -o $tempNupkgFolder src/$project/$project.csproj
 }
 else {
-    dotnet pack -o $tempNupkgFolder src/FakeXrmEasy.Abstractions/FakeXrmEasy.Abstractions.csproj /p:VersionSuffix=$versionSuffix
+    dotnet pack -o $tempNupkgFolder src/$project/$project.csproj /p:VersionSuffix=$versionSuffix
+}
+if(!($LASTEXITCODE -eq 0)) {
+    throw "Error when packing the assembly"
 }
 
-
-Write-Host "Pushing FakeXrmEasy.Abstractions to local folder..."
+Write-Host "Pushing '$($project)' to local folder..."
 dotnet nuget push $tempNupkgFolder/*.nupkg -s $packageSource
+if(!($LASTEXITCODE -eq 0)) {
+    throw "Error pushing NuGet package"
+}
 
-Write-Host "Succeeded :)"
+Write-Host "Succeeded :)" -ForegroundColor Green
