@@ -47,7 +47,7 @@ jobs:
         NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }} 
 
     - name: Pack & Push
-      run: pwsh ./push.ps1 -packageSource "github" -versionSuffix "${ GITHUB_RUN_NUMBER }"
+      run: pwsh ./push.ps1 -packageSource "github" -versionSuffix "${{ github.run_number }}"
       env: 
         NUGET_USERNAME: DynamicsValue
         NUGET_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
