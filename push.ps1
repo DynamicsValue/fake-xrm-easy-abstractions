@@ -6,10 +6,6 @@ param (
 
 Write-Host "Running with packageSource '$($packageSource)' and versionSuffix '$($versionSuffix)'..."
 
-Write-Host "Building..."
-
-./build.ps1
-
 $tempNupkgFolder = './nupkgs'
 Write-Host "Checking if temp nupkgs folder '$($localPackagesFolder)' exists..."
 
