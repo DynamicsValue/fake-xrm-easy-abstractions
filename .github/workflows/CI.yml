@@ -22,14 +22,11 @@ jobs:
     - name: Disable local packages feed
       run: dotnet nuget disable source "local-packages"
 
-    - name: Install dependencies
-      run: dotnet restore
-    
     - name: Build
-      run: dotnet build --configuration Debug --no-restore
-  
-    - name: Test
-      run: dotnet test --configuration Debug --no-restore --verbosity normal --collect:"XPlat code coverage" --settings tests/.runsettings
+      run: pwsh ./build.ps1
+      env: 
+        NUGET_USERNAME: DynamicsValue
+        NUGET_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
   
     - name: Sonarscanner for dotnet
       uses: DynamicsValue/dotnet-sonarscanner@v2.2
