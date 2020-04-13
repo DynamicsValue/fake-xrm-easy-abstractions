@@ -26,7 +26,7 @@ jobs:
       run: pwsh ./build.ps1
       env: 
         NUGET_USERNAME: DynamicsValue
-        NUGET_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+        NUGET_TOKEN: ${{ secrets.GITHUB_PACKAGES_READ_TOKEN }} 
   
     - name: Sonarscanner for dotnet
       uses: DynamicsValue/dotnet-sonarscanner@v2.2
@@ -44,8 +44,8 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
         NUGET_USERNAME: DynamicsValue
-        NUGET_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
-        
+        NUGET_TOKEN: ${{ secrets.GITHUB_PACKAGES_READ_TOKEN }} 
+
     - name: Pack & Push
       run: pwsh ./push.ps1 -packageSource "github" -versionSuffix "${ GITHUB_RUN_NUMBER }"
       env: 
