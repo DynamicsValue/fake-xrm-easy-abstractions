@@ -43,7 +43,9 @@ jobs:
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
-
+        NUGET_USERNAME: DynamicsValue
+        NUGET_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+        
     - name: Pack & Push
       run: pwsh ./push.ps1 -packageSource "github" -versionSuffix "${ GITHUB_RUN_NUMBER }"
       env: 
