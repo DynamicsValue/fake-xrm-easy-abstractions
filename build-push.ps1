@@ -1,3 +1,11 @@
+param (
+    [string]$packageSource = "local-packages",
+    [string]$versionSuffix = ""
+ )
+
+
+Write-Host "Running with packageSource '$($packageSource)' and versionSuffix '$($versionSuffix)'..."
+
 Write-Host "Building..."
 
 ./build.ps1
@@ -16,9 +24,16 @@ Write-Host "Deleting temporary nupkgs..."
 Get-ChildItem -Path $tempNupkgFolder -Include *.* -File -Recurse | ForEach-Object { $_.Delete()}
 
 Write-Host "Packing assembly..."
-dotnet pack -o $tempNupkgFolder src/FakeXrmEasy.Abstractions/FakeXrmEasy.Abstractions.csproj
+if($versionSuffix -eq "") 
+{
+    dotnet pack -o $tempNupkgFolder src/FakeXrmEasy.Abstractions/FakeXrmEasy.Abstractions.csproj
+}
+else {
+    dotnet pack -o $tempNupkgFolder src/FakeXrmEasy.Abstractions/FakeXrmEasy.Abstractions.csproj /p:VersionSuffix=$versionSuffix
+}
+
 
 Write-Host "Pushing FakeXrmEasy.Abstractions to local folder..."
-dotnet nuget push $tempNupkgFolder/*.nupkg -s local-packages
+dotnet nuget push $tempNupkgFolder/*.nupkg -s $packageSource
 
 Write-Host "Succeeded :)"
