@@ -3,7 +3,7 @@
    <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <PackageId>FakeXrmEasy.Abstractions</PackageId>
-    <Version>2.0.0.1-Alpha</Version>
+    <VersionPrefix>2.0.0.1-Alpha</VersionPrefix>
     <Authors>Jordi Montaña</Authors>
     <Company>Dynamics Value</Company>
     <Title>FakeXrmEasy Abstractions</Title>

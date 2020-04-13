@@ -9,6 +9,7 @@ if(!($packagesFolderExists))
     New-Item $localPackagesFolder -ItemType Directory
 }
 
+dotnet restore
 dotnet build
 dotnet test 
 
