@@ -48,7 +48,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
 
     - name: Pack & Push
-      run: pwsh ./push.ps1 -packageSource "github" -versionSuffix "${{ GITHUB_RUN_NUMBER }}"
+      run: pwsh ./push.ps1 -packageSource "github" -versionSuffix "${ GITHUB_RUN_NUMBER }"
 
 
     
