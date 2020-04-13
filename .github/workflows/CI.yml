@@ -31,12 +31,6 @@ jobs:
     - name: Test
       run: dotnet test --configuration Debug --no-restore --verbosity normal --collect:"XPlat code coverage" --settings tests/.runsettings
   
-    
-
-  sonarqube:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
     - name: Sonarscanner for dotnet
       uses: DynamicsValue/dotnet-sonarscanner@v2.2
       with:
@@ -52,6 +46,8 @@ jobs:
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
+
+    
 
     
     
