@@ -16,5 +16,16 @@ namespace FakeXrmEasy.Abstractions
         /// </summary>
         /// <returns></returns>
         IServiceEndpointNotificationService GetServiceEndpointNotificationService();
+
+        /// <summary>
+        /// Returns a tracing service
+        /// </summary>
+        /// <returns></returns>
+        ITracingService GetTracingService();
+
+
+        IOrganizationServiceFactory GetOrganizationServiceFactory();
+
+        IEntityDataSourceRetrieverService GetEntityDataSourceRetrieverService();
     }
 }
