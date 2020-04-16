@@ -1,4 +1,4 @@
-
+using System;
 using Microsoft.Xrm.Sdk;
 
 namespace FakeXrmEasy.Abstractions 
@@ -21,8 +21,6 @@ namespace FakeXrmEasy.Abstractions
         /// Returns a tracing service
         /// </summary>
         /// <returns></returns>
-        ITracingService GetTracingService();
-
 
         IOrganizationServiceFactory GetOrganizationServiceFactory();
 
