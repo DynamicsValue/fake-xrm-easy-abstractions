@@ -7,5 +7,9 @@ namespace FakeXrmEasy.Abstractions.Plugins
     {
         ITracingService TracingService { get; set; }
         IServiceProvider ServiceProvider { get; set; }
+
+        IOrganizationServiceFactory GetOrganizationServiceFactory();
+
+        IEntityDataSourceRetrieverService GetEntityDataSourceRetrieverService();
     }
 }

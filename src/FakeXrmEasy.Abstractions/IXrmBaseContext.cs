@@ -22,8 +22,6 @@ namespace FakeXrmEasy.Abstractions
         /// </summary>
         /// <returns></returns>
 
-        IOrganizationServiceFactory GetOrganizationServiceFactory();
 
-        IEntityDataSourceRetrieverService GetEntityDataSourceRetrieverService();
     }
 }

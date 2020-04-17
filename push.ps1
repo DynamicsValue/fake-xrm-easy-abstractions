@@ -8,7 +8,9 @@ $project = "FakeXrmEasy.Abstractions"
 Write-Host "Running with packageSource '$($packageSource)' and versionSuffix '$($versionSuffix)'..."
 
 $tempNupkgFolder = './nupkgs'
-Write-Host "Checking if temp nupkgs folder '$($localPackagesFolder)' exists..."
+$localPackagesFolder = '../' + $packageSource
+
+Write-Host "Checking if temp nupkgs folder '$($tempNupkgFolder)' exists..."
 
 $tempNupkgFolderExists = Test-Path $tempNupkgFolder -PathType Container
 
@@ -19,6 +21,9 @@ if(!($tempNupkgFolderExists))
 
 Write-Host "Deleting temporary nupkgs..."
 Get-ChildItem -Path $tempNupkgFolder -Include *.* -File -Recurse | ForEach-Object { $_.Delete()}
+
+Write-Host "Deleting previous pushed version '$($localPackagesFolder)'..."
+Get-ChildItem -Path $localPackagesFolder -Include FakeXrmEasy.Abstractions.* -File -Recurse | ForEach-Object { $_.Delete()}
 
 Write-Host "Packing assembly..."
 if($versionSuffix -eq "") 
