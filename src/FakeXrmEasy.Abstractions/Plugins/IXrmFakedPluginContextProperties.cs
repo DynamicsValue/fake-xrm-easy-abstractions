@@ -5,11 +5,16 @@ namespace FakeXrmEasy.Abstractions.Plugins
 {
     public interface IXrmFakedPluginContextProperties
     {
-        ITracingService TracingService { get; set; }
-        IServiceProvider ServiceProvider { get; set; }
+        ITracingService TracingService { get; }
+        
 
-        IOrganizationServiceFactory GetOrganizationServiceFactory();
+        IServiceEndpointNotificationService ServiceEndpointNotificationService { get; }
 
-        IEntityDataSourceRetrieverService GetEntityDataSourceRetrieverService();
+        IOrganizationServiceFactory OrganizationServiceFactory { get; }
+
+        IEntityDataSourceRetrieverService EntityDataSourceRetrieverService { get; }
+
+        IServiceProvider GetServiceProvider(IPluginExecutionContext plugCtx);
+
     }
 }

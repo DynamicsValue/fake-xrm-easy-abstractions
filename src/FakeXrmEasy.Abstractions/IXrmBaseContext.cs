@@ -10,18 +10,5 @@ namespace FakeXrmEasy.Abstractions
         /// </summary>
         /// <returns></returns>
         IOrganizationService GetOrganizationService();
-
-        /// <summary>
-        /// Returns a service endpoint notification service
-        /// </summary>
-        /// <returns></returns>
-        IServiceEndpointNotificationService GetServiceEndpointNotificationService();
-
-        /// <summary>
-        /// Returns a tracing service
-        /// </summary>
-        /// <returns></returns>
-
-
     }
 }
