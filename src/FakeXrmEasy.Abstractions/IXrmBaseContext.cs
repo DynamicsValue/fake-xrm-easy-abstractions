@@ -1,7 +1,6 @@
-using System;
 using Microsoft.Xrm.Sdk;
 
-namespace FakeXrmEasy.Abstractions 
+namespace FakeXrmEasy.Abstractions
 {
     public interface IXrmBaseContext 
     {

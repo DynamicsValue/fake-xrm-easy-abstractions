@@ -1,12 +1,18 @@
 ﻿using System;
+using System.Runtime.Serialization;
 
 namespace FakeXrmEasy.Abstractions.Exceptions
 {
+    [Serializable]
     public class PullRequestException : Exception
     {
         public PullRequestException(string sMessage) :
             base(string.Format("Exception: {0}. This functionality is not available yet. Please consider contributing to the following Git project https://github.com/jordimontana82/fake-xrm-easy by cloning the repository and issuing a pull request.", sMessage))
         {
+        }
+        protected PullRequestException(SerializationInfo info, StreamingContext context)
+        {
+
         }
 
         public static PullRequestException NotImplementedOrganizationRequest(Type t)
