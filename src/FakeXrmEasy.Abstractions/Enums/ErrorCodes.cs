@@ -1,6 +1,6 @@
 ﻿namespace FakeXrmEasy.Abstractions
 {
-    public enum ErrorCodes : int
+    public enum ErrorCodes
     {
 
         /// <summary>
