@@ -14,6 +14,8 @@ namespace FakeXrmEasy.Abstractions.Plugins
 
         IEntityDataSourceRetrieverService EntityDataSourceRetrieverService { get; }
 
+        Entity EntityDataSourceRetriever { get; set; }
+        
         IServiceProvider GetServiceProvider(XrmFakedPluginExecutionContext plugCtx);
 
     }
