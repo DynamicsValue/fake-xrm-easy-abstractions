@@ -35,14 +35,14 @@ jobs:
       uses: DynamicsValue/dotnet-sonarscanner@v2.2
       with:
         buildCommand: dotnet build . --configuration Debug
-        testCommand: dotnet test . --configuration Debug --verbosity normal --collect:"XPlat code coverage" --settings tests/.runsettings
+        testCommand: dotnet test . --configuration Debug --verbosity normal --collect:"XPlat code coverage" --settings tests/.runsettings --results-directory ./coverage
         projectKey: ${{ secrets.SONAR_PROJECT_KEY }}
         projectName: fake-xrm-easy-abstractions
         sonarOrganisation: dynamicsvalue
         beginArguments: >
             /d:sonar.verbose="true"
-            /d:sonar.cs.opencover.reportsPaths='"tests/TestResults/**/coverage.opencover.xml"'
-            /d:sonar.coverage.exclusions='"tests/**"'
+            /d:sonar.cs.opencover.reportsPaths='"coverage/**/coverage.opencover.xml"'
+            /d:sonar.coverage.exclusions='"tests/**/**"'
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
