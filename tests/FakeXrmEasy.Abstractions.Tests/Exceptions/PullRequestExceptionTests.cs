@@ -12,7 +12,7 @@ namespace FakeXrmEasy.Abstractions.Tests.Exceptions
         {
             var message = "Some message";
             var pullRequestException = new PullRequestException(message);
-            Assert.True(pullRequestException.Message.Contains(message));
+            Assert.Contains(message, pullRequestException.Message);
         }
 
         [Fact]
@@ -28,7 +28,7 @@ namespace FakeXrmEasy.Abstractions.Tests.Exceptions
             var missingImplementationMessage = "This implementation doesn't yet contain this feature";
             var pullRequestException = PullRequestException.PartiallyNotImplementedOrganizationRequest(typeof(OrganizationRequest), missingImplementationMessage);
             Assert.NotNull(pullRequestException);
-            Assert.True(pullRequestException.Message.Contains(missingImplementationMessage));
+            Assert.Contains(missingImplementationMessage, pullRequestException.Message);
         }
 
         [Fact]
@@ -36,7 +36,7 @@ namespace FakeXrmEasy.Abstractions.Tests.Exceptions
         {
             var pullRequestException = PullRequestException.FetchXmlOperatorNotImplemented("eq");
             Assert.NotNull(pullRequestException);
-            Assert.True(pullRequestException.Message.Contains("operator 'eq'"));
+            Assert.Contains("operator 'eq'", pullRequestException.Message);
         }
 
     }
