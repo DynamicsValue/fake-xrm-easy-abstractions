@@ -1,10 +1,10 @@
-using System;
+using Microsoft.Xrm.Sdk;
 
 namespace FakeXrmEasy.Abstractions
 {
     public interface ICallerProperties
     {
-        Guid CallerId { get; set; }
-        Guid BusinessUnitId { get; set; }
+        EntityReference CallerId { get; set; }
+        EntityReference BusinessUnitId { get; set; }
     }
 }
