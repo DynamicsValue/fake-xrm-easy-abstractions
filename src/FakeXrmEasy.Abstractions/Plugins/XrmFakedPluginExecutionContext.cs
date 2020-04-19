@@ -67,6 +67,7 @@ namespace FakeXrmEasy.Abstractions.Plugins
         [DataMember(Order = 16)]
         public ParameterCollection OutputParameters { get; set; }
 
+        //Reference to SdkMessageProcessingStep or ServiceEndPoint (Microsoft Azure)
         [DataMember(Order = 17)]
         public EntityReference OwningExtension { get; set; }
 
