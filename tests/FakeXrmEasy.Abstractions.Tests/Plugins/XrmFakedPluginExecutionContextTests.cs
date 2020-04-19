@@ -43,7 +43,9 @@ namespace FakeXrmEasy.Abstractions.Tests.Plugins
         {
             var plugCtx = new XrmFakedPluginExecutionContext();
 
-            plugCtx.BusinessUnitId = Guid.NewGuid();
+            var businessUnitId = Guid.NewGuid();
+
+            plugCtx.BusinessUnitId = businessUnitId;
             plugCtx.CorrelationId = Guid.NewGuid();
             plugCtx.Depth = 2;
             plugCtx.InitiatingUserId = Guid.NewGuid();
@@ -70,6 +72,7 @@ namespace FakeXrmEasy.Abstractions.Tests.Plugins
             plugCtx.Stage = (int) ProcessingStepStage.Preoperation;
  
             Assert.Equal(2, plugCtx.Depth);
+            Assert.Equal(businessUnitId, plugCtx.BusinessUnitId);
 
         }
     }
