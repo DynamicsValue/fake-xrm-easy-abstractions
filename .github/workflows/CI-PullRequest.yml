@@ -2,7 +2,7 @@ name: CI
 
 on:
   pull_request:
-    branches: [ master ]
+    branches: [ master, dev ]
 
 jobs:
   build:
@@ -20,31 +20,33 @@ jobs:
     - name: Disable local packages feed
       run: dotnet nuget disable source "local-packages"
 
-    - name: Install dependencies
-      run: dotnet restore
-    
+    - name: Enable GitHub packages feed
+      run: dotnet nuget enable source github
+      
     - name: Build
-      run: dotnet build --configuration Debug --no-restore
+      run: pwsh ./build.ps1
+      env: 
+        NUGET_USERNAME: DynamicsValue
+        NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }} 
   
-    - name: Test
-      run: dotnet test --configuration Debug --no-restore --verbosity normal --collect:"XPlat code coverage" --settings tests/.runsettings
-  
-    - name: Sonarscanner for dotnet
+    - name: Quality Gate
       uses: DynamicsValue/dotnet-sonarscanner@v2.2
       with:
         buildCommand: dotnet build . --configuration Debug
-        testCommand: dotnet test . --configuration Debug --verbosity normal --collect:"XPlat code coverage" --settings tests/.runsettings
+        testCommand: dotnet test . --configuration Debug --verbosity normal --collect:"XPlat code coverage" --settings tests/.runsettings --results-directory ./coverage
         projectKey: ${{ secrets.SONAR_PROJECT_KEY }}
         projectName: fake-xrm-easy-abstractions
         sonarOrganisation: dynamicsvalue
         beginArguments: >
             /d:sonar.verbose="true"
-            /d:sonar.cs.opencover.reportsPaths='"tests/TestResults/**/coverage.opencover.xml"'
-            /d:sonar.coverage.exclusions='"tests/**"'
+            /d:sonar.qualitygate.wait="true"
+            /d:sonar.cs.opencover.reportsPaths='"coverage/**/coverage.opencover.xml"'
+            /d:sonar.coverage.exclusions='"tests/**/**"'
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
+        NUGET_USERNAME: DynamicsValue
+        NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }} 
     
     
     

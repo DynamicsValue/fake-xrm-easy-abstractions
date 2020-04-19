@@ -43,7 +43,7 @@ namespace FakeXrmEasy.Abstractions.Tests.Plugins
         {
             
             var plugCtx = new XrmFakedPluginExecutionContext();
-            /*
+            
             var operationCreatedOn = DateTime.UtcNow;
             var businessUnitId = Guid.NewGuid();
             var correlationId = Guid.NewGuid();
@@ -112,9 +112,7 @@ namespace FakeXrmEasy.Abstractions.Tests.Plugins
             Assert.Equal(userId, plugCtx.UserId);
             Assert.Equal(parentPluginContext, plugCtx.ParentContext);
             Assert.Equal((int) ProcessingStepStage.Preoperation, plugCtx.Stage);
-            */
-
-            Assert.True(true);
+            
         }
     }
 }
