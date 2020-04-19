@@ -23,6 +23,7 @@ namespace FakeXrmEasy.Abstractions
             where T : Entity;
 
         
+        ICallerProperties CallerProperties { get; set; }
         IXrmFakedPluginContextProperties PluginContextProperties { get; set; }
     }
 }

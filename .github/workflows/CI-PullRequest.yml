@@ -3,6 +3,10 @@ name: CI
 on:
   pull_request:
     branches: [ master, dev ]
+    paths-ignore:
+      - 'coverage/**'
+      - '*.md'
+      - '*.txt'
 
 jobs:
   build:
