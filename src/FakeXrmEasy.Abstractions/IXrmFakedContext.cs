@@ -28,6 +28,7 @@ namespace FakeXrmEasy.Abstractions
 
         void AddEntity(Entity e);
         void AddEntityWithDefaults(Entity e, bool clone = false, bool usePluginPipeline = false);
+        Guid CreateEntity(Entity e);
         void UpdateEntity(Entity e);
         void DeleteEntity(EntityReference er);
 
