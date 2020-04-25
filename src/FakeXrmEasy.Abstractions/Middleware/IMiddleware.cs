@@ -6,10 +6,9 @@ namespace FakeXrmEasy.Abstractions.Middleware
 {
     public interface IMiddlewareBuilder
     {
-        IMiddlewareBuilder Add(Func<IXrmFakedContext, OrganizationRequest, Func<IXrmFakedContext, OrganizationRequest, OrganizationResponse>, OrganizationResponse> funcOrNext);
+        IMiddlewareBuilder Add(Action<IXrmFakedContext> context);
+        IMiddlewareBuilder Use(Func<OrganizationRequestDelegate, OrganizationRequestDelegate> middleware);
 
-        IMiddlewareBuilder AddCrud();
-        IMiddlewareBuilder AddFakeMessages();
         IXrmFakedContext Build();
     }
 }
