@@ -1,5 +1,6 @@
 using FakeXrmEasy.Abstractions.Plugins;
 using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Sdk.Metadata;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,5 +40,11 @@ namespace FakeXrmEasy.Abstractions
         Type FindReflectedType(string logicalName);
 
         void EnableProxyTypes(Assembly assembly);
+
+        void InitializeMetadata(IEnumerable<EntityMetadata> entityMetadataList);
+        void InitializeMetadata(EntityMetadata entityMetadata);
+        void InitializeMetadata(Assembly earlyBoundEntitiesAssembly);
+        IQueryable<EntityMetadata> CreateMetadataQuery();
+
     }
 }
