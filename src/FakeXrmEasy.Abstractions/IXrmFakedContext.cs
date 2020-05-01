@@ -46,5 +46,8 @@ namespace FakeXrmEasy.Abstractions
         void InitializeMetadata(Assembly earlyBoundEntitiesAssembly);
         IQueryable<EntityMetadata> CreateMetadataQuery();
 
+        void AddRelationship(string schemaname, XrmFakedRelationship relationship);
+        void RemoveRelationship(string schemaname);
+        XrmFakedRelationship GetRelationship(string schemaName);
     }
 }
