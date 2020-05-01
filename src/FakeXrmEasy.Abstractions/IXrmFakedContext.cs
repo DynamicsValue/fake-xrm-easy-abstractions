@@ -3,6 +3,7 @@ using Microsoft.Xrm.Sdk;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 
 namespace FakeXrmEasy.Abstractions
 {
@@ -33,5 +34,7 @@ namespace FakeXrmEasy.Abstractions
         void DeleteEntity(EntityReference er);
 
         Type FindReflectedType(string logicalName);
+
+        void EnableProxyTypes(Assembly assembly);
     }
 }
