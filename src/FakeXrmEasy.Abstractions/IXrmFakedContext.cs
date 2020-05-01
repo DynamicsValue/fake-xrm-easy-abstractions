@@ -25,6 +25,9 @@ namespace FakeXrmEasy.Abstractions
         /// <param name="entities"></param>
         void Initialize(IEnumerable<Entity> entities);
         
+        /// Initializes the context with a single entity when only one is needed
+        void Initialize(Entity entity);
+
         IXrmFakedPluginContextProperties PluginContextProperties { get; set; }
 
         void AddEntity(Entity e);
