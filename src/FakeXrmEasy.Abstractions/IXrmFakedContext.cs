@@ -49,5 +49,7 @@ namespace FakeXrmEasy.Abstractions
         void AddRelationship(string schemaname, XrmFakedRelationship relationship);
         void RemoveRelationship(string schemaname);
         XrmFakedRelationship GetRelationship(string schemaName);
+
+        Guid GetRecordUniqueId(EntityReference record, bool validate = true);
     }
 }
