@@ -40,7 +40,7 @@ namespace FakeXrmEasy.Abstractions
         Type FindReflectedType(string logicalName);
 
         void EnableProxyTypes(Assembly assembly);
-
+        IEnumerable<Assembly> ProxyTypesAssemblies { get; }
         void InitializeMetadata(IEnumerable<EntityMetadata> entityMetadataList);
         void InitializeMetadata(EntityMetadata entityMetadata);
         void InitializeMetadata(Assembly earlyBoundEntitiesAssembly);
