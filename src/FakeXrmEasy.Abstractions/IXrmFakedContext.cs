@@ -47,10 +47,10 @@ namespace FakeXrmEasy.Abstractions
         IQueryable<EntityMetadata> CreateMetadataQuery();
         EntityMetadata GetEntityMetadataByName(string sLogicalName);
         void SetEntityMetadata(EntityMetadata em);
-
         void AddRelationship(string schemaname, XrmFakedRelationship relationship);
         void RemoveRelationship(string schemaname);
         XrmFakedRelationship GetRelationship(string schemaName);
+        IEnumerable<XrmFakedRelationship> Relationships { get; }
 
         Guid GetRecordUniqueId(EntityReference record, bool validate = true);
     }
