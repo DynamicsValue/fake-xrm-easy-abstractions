@@ -42,6 +42,7 @@ namespace FakeXrmEasy.Abstractions
         
         
         Type FindReflectedType(string logicalName);
+        Type FindReflectedAttributeType(Type earlyBoundType, string sEntityName, string attributeName);
 
         void EnableProxyTypes(Assembly assembly);
         IEnumerable<Assembly> ProxyTypesAssemblies { get; }
