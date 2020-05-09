@@ -21,6 +21,7 @@ namespace FakeXrmEasy.Abstractions
         IQueryable<Entity> CreateQuery(string logicalName);
         T GetEntityById<T>(Guid id) where T: Entity;
         Entity GetEntityById(string sLogicalName, Guid id);
+        bool ContainsEntity(string sLogicalName, Guid id);
 
         /// <summary>
         /// Receives a list of entities, that are used to initialize the context with those
