@@ -19,6 +19,8 @@ namespace FakeXrmEasy.Abstractions
         /// <returns></returns>
         IQueryable<T> CreateQuery<T>() where T : Entity;
         IQueryable<Entity> CreateQuery(string logicalName);
+        T GetEntityById<T>(Guid id) where T: Entity;
+        Entity GetEntityById(string sLogicalName, Guid id);
 
         /// <summary>
         /// Receives a list of entities, that are used to initialize the context with those
@@ -36,7 +38,8 @@ namespace FakeXrmEasy.Abstractions
         Guid CreateEntity(Entity e);
         void UpdateEntity(Entity e);
         void DeleteEntity(EntityReference er);
-
+        
+        
         Type FindReflectedType(string logicalName);
 
         void EnableProxyTypes(Assembly assembly);
