@@ -54,18 +54,18 @@ namespace FakeXrmEasy.Abstractions
             set { entity2Attribute = value; }
         }
 
-        public XrmFakedRelationship()
-        {
-            RelationshipType = enmFakeRelationshipType.ManyToMany;
-        }
-
-        public enum enmFakeRelationshipType
+        public enum FakeRelationshipType
         {
             ManyToMany = 0,
             OneToMany = 1
         }
 
-        public enmFakeRelationshipType RelationshipType { get; set; }
+        public FakeRelationshipType RelationshipType { get; set; }
+
+        public XrmFakedRelationship()
+        {
+            RelationshipType = FakeRelationshipType.ManyToMany;
+        }
 
         /// <summary>
         /// Initializes a N:N relationship type
@@ -82,7 +82,7 @@ namespace FakeXrmEasy.Abstractions
             Entity2Attribute = entity2Attribute;
             Entity1LogicalName = entity1LogicalName;
             Entity2LogicalName = entity2LogicalName;
-            RelationshipType = enmFakeRelationshipType.ManyToMany;
+            RelationshipType = FakeRelationshipType.ManyToMany;
         }
 
         public XrmFakedRelationship(string entity1Attribute, string entity2Attribute, string entity1LogicalName, string entity2LogicalName)
@@ -91,7 +91,7 @@ namespace FakeXrmEasy.Abstractions
             Entity2Attribute = entity2Attribute;
             Entity1LogicalName = entity1LogicalName;
             Entity2LogicalName = entity2LogicalName;
-            RelationshipType = enmFakeRelationshipType.OneToMany;
+            RelationshipType = FakeRelationshipType.OneToMany;
         }
     }
 }
