@@ -23,5 +23,11 @@ namespace FakeXrmEasy.Abstractions.Settings
             Monthly = 2003,
             FourWeek = 2004
         }
+
+        public FiscalYearSettings()
+        {
+            FiscalPeriodTemplate = Template.Annually;
+            StartDate = new DateTime(DateTime.UtcNow.Year, 1, 1);
+        }
     }
 }
