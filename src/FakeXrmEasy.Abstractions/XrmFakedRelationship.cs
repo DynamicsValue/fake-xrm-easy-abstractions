@@ -1,5 +1,3 @@
-using System;
-
 namespace FakeXrmEasy.Abstractions
 {
     public class XrmFakedRelationship
