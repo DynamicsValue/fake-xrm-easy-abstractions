@@ -6,5 +6,6 @@ namespace FakeXrmEasy.Abstractions.FakeMessageExecutors
 {
     public class ExecutionMocks : Dictionary<Type, OrganizationRequestExecution>
     {
+        public ExecutionMocks() { }
     }
 }
