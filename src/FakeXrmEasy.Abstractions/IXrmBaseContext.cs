@@ -16,7 +16,10 @@ namespace FakeXrmEasy.Abstractions
         /// <summary>
         /// Returns a custom property
         /// </summary>
-        /// <returns>The property requested or exception if property wasn't found</returns>
+        /// <returns>The property requested or exception if property wasn't set before</returns>
         T GetProperty<T>();
+
+        //True if property was set, false otherwise
+        bool HasProperty<T>();
     }
 }
