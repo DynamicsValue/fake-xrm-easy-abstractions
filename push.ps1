@@ -39,6 +39,8 @@ else {
     dotnet clean
     Write-Host "Restoring..."
     dotnet restore src/$project/$project.csproj
+    Write-Host "Building..."
+    dotnet build --configuration Debug --no-restore
     Write-Host "Packing..."
     dotnet pack -o $tempNupkgFolder src/$project/$project.csproj /p:VersionSuffix=$versionSuffix
 }
