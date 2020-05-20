@@ -37,9 +37,10 @@ if($versionSuffix -eq "")
 else {
     dotnet pack -o $tempNupkgFolder src/$project/$project.csproj /p:VersionSuffix=$versionSuffix
 }
-if(!($LASTEXITCODE -eq 0)) {
-    throw "Error when packing the assembly"
-}
+
+# if(!($LASTEXITCODE -eq 0)) {
+#    throw "Error when packing the assembly"
+# }
 
 Write-Host "Pushing '$($project)' to source '$($packageSource)'..."
 dotnet nuget push $tempNupkgFolder/*.nupkg -s $packageSource
