@@ -35,7 +35,11 @@ if($versionSuffix -eq "")
     dotnet pack -o $tempNupkgFolder src/$project/$project.csproj
 }
 else {
+    Write-Host "Cleaning..."
+    dotnet clean
+    Write-Host "Restoring..."
     dotnet restore src/$project/$project.csproj
+    Write-Host "Packing..."
     dotnet pack -o $tempNupkgFolder src/$project/$project.csproj /p:VersionSuffix=$versionSuffix
 }
 
