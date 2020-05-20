@@ -58,7 +58,7 @@ jobs:
         NUGET_USERNAME: DynamicsValue
         NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }} 
 
-    - name: Pack & Push
+    - name: Push
       run: pwsh ./push.ps1 -packageSource "github"
       env: 
         NUGET_USERNAME: DynamicsValue

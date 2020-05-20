@@ -18,7 +18,7 @@ if(!($tempNupkgFolderExists))
 }
 
 Write-Host "Deleting temporary nupkgs..."
-Get-ChildItem -Path $tempNupkgFolder -Include *.* -File -Recurse | ForEach-Object { $_.Delete()}
+Get-ChildItem -Path $tempNupkgFolder -Include *.nupkg -File -Recurse | ForEach-Object { $_.Delete()}
 
 Write-Host "Packing assembly..."
 if($versionSuffix -eq "") 
@@ -33,4 +33,4 @@ if(!($LASTEXITCODE -eq 0)) {
     throw "Error when packing the assembly"
 }
 
-Write-Host "Succeeded :)" -ForegroundColor Green
+Write-Host "Pack Succeeded :)" -ForegroundColor Green

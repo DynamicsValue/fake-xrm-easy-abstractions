@@ -24,4 +24,4 @@ if(!($LASTEXITCODE -eq 0)) {
     throw "Error during test step"
 }
 
-Write-Host  "*** Succeeded :)  **** " -ForegroundColor Green
+Write-Host  "*** Build Succeeded :)  **** " -ForegroundColor Green
