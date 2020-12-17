@@ -6,7 +6,9 @@ $project = "FakeXrmEasy.Abstractions"
 
 Write-Host "Running with packageSource '$($packageSource)'..."
 
-$tempNupkgFolder = './nupkgs'
+$dirSeparator = [IO.Path]::DirectorySeparatorChar
+
+$tempNupkgFolder = ".$($dirSeparator)nupkgs$($dirSeparator)*.nupkg"
 
 if($packageSource -eq "local-packages") {
     $localPackagesFolder = '../local-packages'
@@ -16,7 +18,9 @@ if($packageSource -eq "local-packages") {
 }
 
 Write-Host "Pushing '$($project)' to source '$($packageSource)'..."
-dotnet nuget push $tempNupkgFolder/*.nupkg -s $packageSource
+
+
+dotnet nuget push $tempNupkgFolder -s $packageSource
 if(!($LASTEXITCODE -eq 0)) {
     throw "Error pushing NuGet package"
 }
