@@ -75,8 +75,8 @@ jobs:
         NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }} 
 
   pack-push:
-    needs: [build-core, sonar]
-    runs-on: windows-latest
+    needs:  [build-core, sonar]
+    runs-on: ubuntu-latest
 
     steps:
       - name: Pack
