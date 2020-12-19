@@ -76,7 +76,7 @@ jobs:
 
   pack-push:
     needs:  [build-core, sonar]
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - uses: actions/checkout@v2
@@ -99,9 +99,10 @@ jobs:
           NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
 
       - name: Push
-        run: pwsh ./push.ps1 -packageSource "github"
+        run: nuget.exe push .\nupkgs\*.nupkg --no-symbols --skip-duplicate
         env: 
           NUGET_USERNAME: DynamicsValue
+          NUGET_AUTH_TOKEN: ${{ github.token }}
           NUGET_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     
