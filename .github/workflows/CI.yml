@@ -103,7 +103,7 @@ jobs:
           NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
 
       - name: Push
-        run: nuget.exe push .\nupkgs\*.nupkg -s ${{ env.source-url }}
+        run: nuget.exe push .\nupkgs\*.nupkg -Source ${{ env.source-url }}
         env: 
           NUGET_USERNAME: DynamicsValue
           NUGET_AUTH_TOKEN: ${{ github.token }}
