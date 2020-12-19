@@ -79,6 +79,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup .NET Core for Actual Source
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 3.1.201
+ 
+      - name: Disable local packages feed
+        run: dotnet nuget disable source "local-packages"
+
+      - name: Enable GitHub packages feed
+        run: dotnet nuget enable source github 
+
       - name: Pack
         run: pwsh ./pack.ps1 -versionSuffix "ci.${{ github.head_ref }}${{ github.run_number }}"
         env: 
