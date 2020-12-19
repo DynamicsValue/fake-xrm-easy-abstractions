@@ -20,7 +20,14 @@ if($packageSource -eq "local-packages") {
 Write-Host "Pushing '$($project)' to source '$($packageSource)'..."
 
 
-dotnet nuget push $tempNupkgFolder -s $packageSource
+if($packageSource -eq "local-packages") {
+    dotnet nuget push $tempNupkgFolder -s $packageSource
+}
+else 
+{
+    dotnet nuget push $tempNupkgFolder --skip-duplicate --api-key Env:\NUGET_TOKEN -s $packageSource
+}
+
 if(!($LASTEXITCODE -eq 0)) {
     throw "Error pushing NuGet package"
 }
