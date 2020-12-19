@@ -38,6 +38,7 @@ jobs:
         NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }} 
    
   sonar:
+    needs: build-core
     runs-on: ubuntu-latest
     
     steps:
@@ -74,7 +75,7 @@ jobs:
         NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }} 
 
   pack-push:
-
+    needs: [build-core, sonar]
     runs-on: windows-latest
 
     steps:
