@@ -25,7 +25,7 @@ if($packageSource -eq "local-packages") {
 }
 else 
 {
-    dotnet nuget push $tempNupkgFolder --skip-duplicate --api-key Env:\NUGET_TOKEN -s $packageSource
+    dotnet nuget push $tempNupkgFolder --skip-duplicate --api-key [System.Environment]::GetEnvironmentVariable('NUGET_TOKEN') -s $packageSource
 }
 
 if(!($LASTEXITCODE -eq 0)) {
