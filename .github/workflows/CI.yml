@@ -9,9 +9,13 @@ on:
       - '*.txt'
 
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
+  build-core:
+    strategy:
+      fail-fast: false 
+      matrix: 
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    
+    runs-on: ${{matrix.os}} 
 
     steps:
     - uses: actions/checkout@v2
@@ -32,12 +36,23 @@ jobs:
       env: 
         NUGET_USERNAME: DynamicsValue
         NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }} 
-  
-    - name: Pack
-      run: pwsh ./pack.ps1 -versionSuffix "ci.${{ github.head_ref }}${{ github.run_number }}"
-      env: 
-        NUGET_USERNAME: DynamicsValue
-        NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }} 
+   
+  sonar:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET Core for Actual Source
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.201
+ 
+    - name: Disable local packages feed
+      run: dotnet nuget disable source "local-packages"
+
+    - name: Enable GitHub packages feed
+      run: dotnet nuget enable source github 
 
     - name: Quality Gate
       uses: DynamicsValue/dotnet-sonarscanner@v2.3
@@ -58,14 +73,22 @@ jobs:
         NUGET_USERNAME: DynamicsValue
         NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }} 
 
-    - name: Push
-      run: pwsh ./push.ps1 -packageSource "github"
-      env: 
-        NUGET_USERNAME: DynamicsValue
-        NUGET_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+  pack-push:
 
+    runs-on: windows-latest
 
-    
+    steps:
+      - name: Pack
+        run: pwsh ./pack.ps1 -versionSuffix "ci.${{ github.head_ref }}${{ github.run_number }}"
+        env: 
+          NUGET_USERNAME: DynamicsValue
+          NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
+
+      - name: Push
+        run: pwsh ./push.ps1 -packageSource "github"
+        env: 
+          NUGET_USERNAME: DynamicsValue
+          NUGET_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     
     
