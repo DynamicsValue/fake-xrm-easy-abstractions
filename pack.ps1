@@ -21,7 +21,7 @@ if(!($tempNupkgFolderExists))
 Write-Host "Deleting temporary nupkgs..."
 Get-ChildItem -Path $tempNupkgFolder -Include *.nupkg -File -Recurse | ForEach-Object { $_.Delete()}
 
-Write-Host "Packing assembly..."
+Write-Host "Packing assembly for targetFrameworks $($targetFrameworks)..."
 if($versionSuffix -eq "") 
 {
     dotnet pack -p:TargetFrameworks=$targetFrameworks -o $tempNupkgFolder src/$project/$project.csproj
