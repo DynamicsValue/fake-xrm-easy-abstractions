@@ -22,13 +22,27 @@ Write-Host "Deleting temporary nupkgs..."
 Get-ChildItem -Path $tempNupkgFolder -Include *.nupkg -File -Recurse | ForEach-Object { $_.Delete()}
 
 Write-Host "Packing assembly for targetFrameworks $($targetFrameworks)..."
-if($versionSuffix -eq "") 
+if($targetFrameworks -eq "all")
 {
-    dotnet pack -p:TargetFrameworks=$targetFrameworks -o $tempNupkgFolder src/$project/$project.csproj
+    if($versionSuffix -eq "") 
+    {
+        dotnet pack -o $tempNupkgFolder src/$project/$project.csproj
+    }
+    else {
+        dotnet pack -o $tempNupkgFolder src/$project/$project.csproj --version-suffix $versionSuffix
+    }
 }
-else {
-    dotnet pack -p:TargetFrameworks=$targetFrameworks -o $tempNupkgFolder src/$project/$project.csproj --version-suffix $versionSuffix
+else 
+{
+    if($versionSuffix -eq "") 
+    {
+        dotnet pack -p:TargetFrameworks=$targetFrameworks -o $tempNupkgFolder src/$project/$project.csproj
+    }
+    else {
+        dotnet pack -p:TargetFrameworks=$targetFrameworks -o $tempNupkgFolder src/$project/$project.csproj --version-suffix $versionSuffix
+    }
 }
+
 
 if(!($LASTEXITCODE -eq 0)) {
     throw "Error when packing the assembly"
