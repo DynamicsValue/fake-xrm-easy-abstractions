@@ -13,7 +13,7 @@ env:
   source-url: "https://nuget.pkg.github.com/${{github.repository_owner}}/index.json"
 
 jobs:
-  build-core:
+  build-netcore:
     strategy:
       fail-fast: false 
       matrix: 
@@ -40,7 +40,31 @@ jobs:
       env: 
         NUGET_USERNAME: DynamicsValue
         NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }} 
+  
+  build-net462:
    
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET Core for Actual Source
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: ${{ env.dotnet-version }}
+ 
+    - name: Disable local packages feed
+      run: dotnet nuget disable source "local-packages"
+
+    - name: Enable GitHub packages feed
+      run: dotnet nuget enable source github
+      
+    - name: Build
+      run: pwsh ./build.ps1 -targetFramework 'net462'
+      env: 
+        NUGET_USERNAME: DynamicsValue
+        NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }} 
+        
   sonar:
     needs: build-core
     runs-on: ubuntu-latest
