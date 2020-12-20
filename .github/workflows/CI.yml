@@ -64,9 +64,9 @@ jobs:
       env: 
         NUGET_USERNAME: DynamicsValue
         NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }} 
-        
+
   sonar:
-    needs: build-core
+    needs: build-netcore
     runs-on: ubuntu-latest
     
     steps:
@@ -103,7 +103,7 @@ jobs:
         NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }} 
 
   pack-push:
-    needs:  [build-core, sonar]
+    needs:  [build-netcore, build-net462, sonar]
     runs-on: windows-latest
 
     steps:
