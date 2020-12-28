@@ -42,7 +42,11 @@ jobs:
         NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }} 
   
   build-net-framework:
-   
+    strategy:
+      fail-fast: false 
+      matrix: 
+        configuration: ['FAKE_XRM_EASY_9', 'FAKE_XRM_EASY_365', 'FAKE_XRM_EASY_2016','FAKE_XRM_EASY_2015','FAKE_XRM_EASY_2013','FAKE_XRM_EASY']
+
     runs-on: windows-latest
 
     steps:
@@ -60,7 +64,7 @@ jobs:
       run: dotnet nuget enable source github
       
     - name: Build
-      run: pwsh ./build.ps1 -targetFramework 'net452'
+      run: pwsh ./build.ps1 -configuration ${{matrix.configuration}} -targetFramework 'net452;net462'
       env: 
         NUGET_USERNAME: DynamicsValue
         NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }} 
