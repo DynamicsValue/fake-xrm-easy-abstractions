@@ -41,7 +41,7 @@ jobs:
         NUGET_USERNAME: DynamicsValue
         NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }} 
   
-  build-net462:
+  build-net452:
    
     runs-on: windows-latest
 
@@ -60,7 +60,7 @@ jobs:
       run: dotnet nuget enable source github
       
     - name: Build
-      run: pwsh ./build.ps1 -targetFramework 'net462'
+      run: pwsh ./build.ps1 -targetFramework 'net452'
       env: 
         NUGET_USERNAME: DynamicsValue
         NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }} 
