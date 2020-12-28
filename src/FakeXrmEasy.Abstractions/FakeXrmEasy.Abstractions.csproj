@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
    <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.1;net452</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.1;net452;net462</TargetFrameworks>
     <PackageId>FakeXrmEasy.Abstractions</PackageId>
     <VersionPrefix>2.0.1</VersionPrefix>
     <Authors>Jordi Montaña</Authors>
@@ -27,6 +27,10 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net452'">
+    <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="9.0.0.5" />
+  </ItemGroup>
+  
+  <ItemGroup Condition="'$(TargetFramework)' == 'net462'">
     <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="9.0.0.5" />
   </ItemGroup>
 
