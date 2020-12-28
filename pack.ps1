@@ -3,8 +3,6 @@ param (
     [string]$targetFrameworks = "netcoreapp3.1"
  )
 
-$project = "FakeXrmEasy.Abstractions"
-
 Write-Host "Running with versionSuffix '$($versionSuffix)'..."
 
 $tempNupkgFolder = './nupkgs'
@@ -21,31 +19,11 @@ if(!($tempNupkgFolderExists))
 Write-Host "Deleting temporary nupkgs..."
 Get-ChildItem -Path $tempNupkgFolder -Include *.nupkg -File -Recurse | ForEach-Object { $_.Delete()}
 
-Write-Host "Packing assembly for targetFrameworks $($targetFrameworks)..."
-if($targetFrameworks -eq "all")
-{
-    if($versionSuffix -eq "") 
-    {
-        dotnet pack -o $tempNupkgFolder src/$project/$project.csproj
-    }
-    else {
-        dotnet pack -o $tempNupkgFolder src/$project/$project.csproj --version-suffix $versionSuffix
-    }
-}
-else 
-{
-    if($versionSuffix -eq "") 
-    {
-        dotnet pack -p:TargetFrameworks=$targetFrameworks -o $tempNupkgFolder src/$project/$project.csproj
-    }
-    else {
-        dotnet pack -p:TargetFrameworks=$targetFrameworks -o $tempNupkgFolder src/$project/$project.csproj --version-suffix $versionSuffix
-    }
-}
+./pack-configuration.ps1 -configuration "FAKE_XRM_EASY" -versionSuffix $versionSuffix -targetFrameworks $targetFrameworks
+./pack-configuration.ps1 -configuration "FAKE_XRM_EASY_2013" -versionSuffix $versionSuffix -targetFrameworks $targetFrameworks
+./pack-configuration.ps1 -configuration "FAKE_XRM_EASY_2015" -versionSuffix $versionSuffix -targetFrameworks $targetFrameworks
+./pack-configuration.ps1 -configuration "FAKE_XRM_EASY_2016" -versionSuffix $versionSuffix -targetFrameworks $targetFrameworks
+./pack-configuration.ps1 -configuration "FAKE_XRM_EASY_365" -versionSuffix $versionSuffix -targetFrameworks $targetFrameworks
+./pack-configuration.ps1 -configuration "FAKE_XRM_EASY_9" -versionSuffix $versionSuffix -targetFrameworks $targetFrameworks
 
-
-if(!($LASTEXITCODE -eq 0)) {
-    throw "Error when packing the assembly"
-}
-
-Write-Host "Pack Succeeded :)" -ForegroundColor Green
+Write-Host "Pack All Configurations Succeeded  :)" -ForegroundColor Green
