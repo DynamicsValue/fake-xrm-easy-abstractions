@@ -41,20 +41,20 @@ if($targetFrameworks -eq "all")
 {
     if($versionSuffix -eq "") 
     {
-        dotnet pack /p:PackageId=$packageId -o $tempNupkgFolder src/$project/$project.csproj
+        dotnet pack --configuration $configuration /p:PackageId=$packageId -o $tempNupkgFolder src/$project/$project.csproj
     }
     else {
-        dotnet pack /p:PackageId=$packageId -o $tempNupkgFolder src/$project/$project.csproj --version-suffix $versionSuffix
+        dotnet pack --configuration $configuration /p:PackageId=$packageId -o $tempNupkgFolder src/$project/$project.csproj --version-suffix $versionSuffix
     }
 }
 else 
 {
     if($versionSuffix -eq "") 
     {
-        dotnet pack /p:PackageId=$packageId -p:TargetFrameworks=$targetFrameworks -o $tempNupkgFolder src/$project/$project.csproj
+        dotnet pack --configuration $configuration /p:PackageId=$packageId -p:TargetFrameworks=$targetFrameworks -o $tempNupkgFolder src/$project/$project.csproj
     }
     else {
-        dotnet pack /p:PackageId=$packageId -p:TargetFrameworks=$targetFrameworks -o $tempNupkgFolder src/$project/$project.csproj --version-suffix $versionSuffix
+        dotnet pack --configuration $configuration /p:PackageId=$packageId -p:TargetFrameworks=$targetFrameworks -o $tempNupkgFolder src/$project/$project.csproj --version-suffix $versionSuffix
     }
 }
 
