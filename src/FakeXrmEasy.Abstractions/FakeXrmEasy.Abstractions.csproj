@@ -53,16 +53,13 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net452' And '$(Configuration)'=='FAKE_XRM_EASY_2013'">
-    <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="[6.0.0,7.0)" />
-    <PackageReference Include="Microsoft.CrmSdk.Extensions" Version="[6.0.0,7.0)" />
-    <PackageReference Include="Microsoft.CrmSdk.Workflow" Version="[6.0.0,7.0)" />
-    <PackageReference Include="Microsoft.CrmSdk.Deployment" Version="[6.0.0,7.0)" />
+    <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="[6.1.2,7.0)" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net452' And '$(Configuration)'=='FAKE_XRM_EASY'">
     <PackageReference Include="Microsoft.Xrm.Sdk.2011" Version="[5.0.18]" />
     <PackageReference Include="Microsoft.Crm.Sdk.Proxy.2011" Version="[5.0.18]" />
-    <PackageReference Include="Microsoft.Xrm.Client.2011" Version="[5.0.18]" />
+
   </ItemGroup>
 
 </Project>
