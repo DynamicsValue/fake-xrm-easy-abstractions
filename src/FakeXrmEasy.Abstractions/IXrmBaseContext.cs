@@ -10,6 +10,12 @@ namespace FakeXrmEasy.Abstractions
         /// <returns></returns>
         IOrganizationService GetOrganizationService();
 
+        /// <summary>
+        /// Returns an instance of a tracing service
+        /// </summary>
+        /// <returns></returns>
+        ITracingService GetTracingService();
+
         //Set a value of a specific custom property of a given type
         void SetProperty<T>(T property);
 

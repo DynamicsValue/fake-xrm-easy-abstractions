@@ -10,17 +10,48 @@ namespace FakeXrmEasy.Abstractions
 {
     public interface IXrmFakedContext: IXrmBaseContext
     {
+        /// <summary>
+        /// Returns the caller properties, that is, the default user and business unit used to impersonate service calls
+        /// </summary>
         ICallerProperties CallerProperties { get; set; }
 
         /// <summary>
-        /// Receives a strong-typed entity type and returns a Queryable of that type
+        /// Creates a queryable for a strongly-typed entity
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         IQueryable<T> CreateQuery<T>() where T : Entity;
+
+        /// <summary>
+        /// Creates a queryable for a late bound entity
+        /// </summary>
+        /// <param name="logicalName"></param>
+        /// <returns></returns>
         IQueryable<Entity> CreateQuery(string logicalName);
+
+        /// <summary>
+        /// Retrieves an entity by primary key as currently stored in the in-memory database.
+        /// Useful if you want to bypass a retrieve message, and simpler than using CreateQuery.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="id"></param>
+        /// <returns></returns>
         T GetEntityById<T>(Guid id) where T: Entity;
+
+        /// <summary>
+        /// Same as GetEntityById<T> but for late bound entities
+        /// </summary>
+        /// <param name="logicalName"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
         Entity GetEntityById(string logicalName, Guid id);
+
+        /// <summary>
+        /// Returns true if record of the logicalName and id exists in the in-memory database
+        /// </summary>
+        /// <param name="logicalName"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
         bool ContainsEntity(string logicalName, Guid id);
 
         /// <summary>
