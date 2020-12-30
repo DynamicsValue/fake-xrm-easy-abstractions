@@ -16,6 +16,12 @@ namespace FakeXrmEasy.Abstractions
         ICallerProperties CallerProperties { get; set; }
 
         /// <summary>
+        /// Returns an instance of a tracing service
+        /// </summary>
+        /// <returns></returns>
+        ITracingService GetTracingService();
+
+        /// <summary>
         /// Creates a queryable for a strongly-typed entity
         /// </summary>
         /// <typeparam name="T"></typeparam>
