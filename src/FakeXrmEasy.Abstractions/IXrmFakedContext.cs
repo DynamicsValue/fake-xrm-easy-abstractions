@@ -19,7 +19,7 @@ namespace FakeXrmEasy.Abstractions
         /// Returns an instance of a tracing service
         /// </summary>
         /// <returns></returns>
-        ITracingService GetTracingService();
+        IXrmFakedTracingService GetTracingService();
 
         /// <summary>
         /// Creates a queryable for a strongly-typed entity
