@@ -8,6 +8,7 @@
             "args": [
                 "build",
                 "${workspaceFolder}/tests/FakeXrmEasy.Abstractions.Tests/FakeXrmEasy.Abstractions.Tests.csproj",
+                "--framework 'netcoreapp3.1'",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
