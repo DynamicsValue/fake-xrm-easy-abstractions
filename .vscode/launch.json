@@ -8,7 +8,7 @@
             "name": ".NET Core Launch (console)",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build",
+            "preLaunchTask": "build --framework 'netcoreapp3.1' --configuration 'FAKE_XRM_EASY_9'",
             // If you have changed target frameworks, make sure to update the program path.
             "program": "${workspaceFolder}/tests/FakeXrmEasy.Abstractions.Tests/bin/Debug/netcoreapp3.1/FakeXrmEasy.Abstractions.Tests.dll",
             "args": [],
