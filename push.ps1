@@ -8,7 +8,8 @@ Write-Host "Running with packageSource '$($packageSource)'..."
 
 $dirSeparator = [IO.Path]::DirectorySeparatorChar
 
-$tempNupkgFolder = ".$($dirSeparator)nupkgs$($dirSeparator)*.nupkg"
+# Using this glob pattern because of this: https://github.com/dotnet/docs/issues/7146
+$tempNupkgFolder = "nupkgs$($dirSeparator)**$($dirSeparator)*.nupkg"
 
 if($packageSource -eq "local-packages") {
     $localPackagesFolder = '../local-packages'
@@ -17,7 +18,8 @@ if($packageSource -eq "local-packages") {
     Get-ChildItem -Path $localPackagesFolder -Include $projectFilePattern -File -Recurse | ForEach-Object { $_.Delete()}
 }
 
-Write-Host "Pushing '$($project)' to source '$($packageSource)'..."
+Write-Host "Pushing '$($project)' to source '$($packageSource)' from '$($tempNupkgFolder)'..."
+
 
 
 if($packageSource -eq "local-packages") {
