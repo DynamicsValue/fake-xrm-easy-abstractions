@@ -1,9 +1,15 @@
+using FakeXrmEasy.Abstractions.Enums;
 using Microsoft.Xrm.Sdk;
 
 namespace FakeXrmEasy.Abstractions
 {
     public interface IXrmBaseContext 
     {
+        /// <summary>
+        /// Sets the chosen software license in the FakeXrmEasy framework
+        /// </summary>
+        FakeXrmEasyLicense? LicenseContext { get; set; }
+
         /// <summary>
         /// Returns an instance of an organization service
         /// </summary>
