@@ -1,4 +1,3 @@
-
 using Microsoft.Xrm.Sdk;
 
 namespace FakeXrmEasy.Abstractions
