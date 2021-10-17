@@ -21,4 +21,4 @@ Get-ChildItem -Path $tempNupkgFolder -Include *.nupkg -File -Recurse | ForEach-O
 
 ./pack-all-configurations.ps1 -targetFrameworks $targetFrameworks -versionSuffix $versionSuffix
 
-Write-Host "Pack All Configurations Succeeded  :)" -ForegroundColor Green
+Write-Host "Pack Succeeded  :)" -ForegroundColor Green

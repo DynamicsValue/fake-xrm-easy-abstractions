@@ -3,36 +3,37 @@ param (
     [string]$targetFrameworks = "netcoreapp3.1",
     [string]$configuration = "FAKE_XRM_EASY_9",
     [string]$projectName = "FakeXrmEasy.Abstractions",
-    [string]$projectPath = "src/FakeXrmEasy.Abstractions"
+    [string]$projectPath = "src/FakeXrmEasy.Abstractions",
+    [string]$packageIdPrefix = "FakeXrmEasy.Abstractions"
  )
 
 Write-Host "Packing configuration '$($configuration)', for project '$($projectName)' at '$($projectPath)'..."
 
-$packageId = $projectName;
+$packageId = $packageIdPrefix;
 
 if($configuration -eq "FAKE_XRM_EASY_9")
 {
-  $packageId = $('"' + $projectName + '.v9"')
+  $packageId = $('"' + $packageIdPrefix + '.v9"')
 }
 elseif($configuration -eq "FAKE_XRM_EASY_365")
 {
-  $packageId = $('"' + $projectName + '.v365"')
+  $packageId = $('"' + $packageIdPrefix + '.v365"')
 }
 elseif($configuration -eq "FAKE_XRM_EASY_2016")
 {
-  $packageId = $('"' + $projectName + '.v2016"')
+  $packageId = $('"' + $packageIdPrefix + '.v2016"')
 }
 elseif($configuration -eq "FAKE_XRM_EASY_2015")
 {
-  $packageId = $('"' + $projectName + '.v2015"')
+  $packageId = $('"' + $packageIdPrefix + '.v2015"')
 }
 elseif($configuration -eq "FAKE_XRM_EASY_2013")
 {
-  $packageId = $('"' + $projectName + '.v2013"')
+  $packageId = $('"' + $packageIdPrefix + '.v2013"')
 }
 else 
 {
-  $packageId = $('"' + $projectName + '.v2011"')
+  $packageId = $('"' + $packageIdPrefix + '.v2011"')
   Write-Host $packageId
 }
 $tempNupkgFolder = './nupkgs'
