@@ -1,60 +1,65 @@
 param (
     [string]$versionSuffix = "",
     [string]$targetFrameworks = "netcoreapp3.1",
-    [string]$configuration = "FAKE_XRM_EASY_9"
+    [string]$configuration = "FAKE_XRM_EASY_9",
+    [string]$projectName = "FakeXrmEasy.Abstractions",
+    [string]$projectPath = "src/FakeXrmEasy.Abstractions"
  )
 
-Write-Host "Packing configuration $($configuration)..."
+Write-Host "Packing configuration '$($configuration)', for project '$($projectName)' at '$($projectPath)'..."
 
-$project = "FakeXrmEasy.Abstractions"
-$packageId = $project;
+$packageId = $projectName;
 
 if($configuration -eq "FAKE_XRM_EASY_9")
 {
-  $packageId = $('"' + $project + '.v9"')
+  $packageId = $('"' + $projectName + '.v9"')
 }
 elseif($configuration -eq "FAKE_XRM_EASY_365")
 {
-  $packageId = $('"' + $project + '.v365"')
+  $packageId = $('"' + $projectName + '.v365"')
 }
 elseif($configuration -eq "FAKE_XRM_EASY_2016")
 {
-  $packageId = $('"' + $project + '.v2016"')
+  $packageId = $('"' + $projectName + '.v2016"')
 }
 elseif($configuration -eq "FAKE_XRM_EASY_2015")
 {
-  $packageId = $('"' + $project + '.v2015"')
+  $packageId = $('"' + $projectName + '.v2015"')
 }
 elseif($configuration -eq "FAKE_XRM_EASY_2013")
 {
-  $packageId = $('"' + $project + '.v2013"')
+  $packageId = $('"' + $projectName + '.v2013"')
 }
 else 
 {
-  $packageId = $('"' + $project + '.v2011"')
+  $packageId = $('"' + $projectName + '.v2011"')
   Write-Host $packageId
 }
 $tempNupkgFolder = './nupkgs'
+
+Write-Host "Building..."
+
+./build.ps1 -targetFramework $targetFrameworks -configuration $configuration
 
 Write-Host "Packing assembly for targetFrameworks $($targetFrameworks)..."
 if($targetFrameworks -eq "all")
 {
     if($versionSuffix -eq "") 
     {
-        dotnet pack --configuration $configuration /p:PackageId=$packageId -o $tempNupkgFolder src/$project/$project.csproj
+        dotnet pack --no-build --no-restore --configuration $configuration -p:PackageID=$packageId -o $tempNupkgFolder $projectPath/$projectName.csproj
     }
     else {
-        dotnet pack --configuration $configuration /p:PackageId=$packageId -o $tempNupkgFolder src/$project/$project.csproj --version-suffix $versionSuffix
+        dotnet pack --no-build --no-restore --configuration $configuration -p:PackageID=$packageId -o $tempNupkgFolder $projectPath/$projectName.csproj --version-suffix $versionSuffix
     }
 }
 else 
 {
     if($versionSuffix -eq "") 
     {
-        dotnet pack --configuration $configuration /p:PackageId=$packageId -p:TargetFrameworks=$targetFrameworks -o $tempNupkgFolder src/$project/$project.csproj
+        dotnet pack --no-build --no-restore --configuration $configuration -p:PackageID=$packageId -p:TargetFrameworks=$targetFrameworks -o $tempNupkgFolder $projectPath/$projectName.csproj
     }
     else {
-        dotnet pack --configuration $configuration /p:PackageId=$packageId -p:TargetFrameworks=$targetFrameworks -o $tempNupkgFolder src/$project/$project.csproj --version-suffix $versionSuffix
+        dotnet pack --no-build --no-restore --configuration $configuration -p:PackageID=$packageId -p:TargetFrameworks=$targetFrameworks -o $tempNupkgFolder $projectPath/$projectName.csproj --version-suffix $versionSuffix
     }
 }
 
