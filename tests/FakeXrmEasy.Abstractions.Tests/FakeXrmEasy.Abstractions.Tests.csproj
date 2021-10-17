@@ -78,7 +78,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\FakeXrmEasy.Abstractions\FakeXrmEasy.Abstractions.csproj">
-      <Name>FakeXrmEasy.Abstractions.v2011</Name>
       <PrivateAssets>all</PrivateAssets>
     </ProjectReference>
   </ItemGroup>
