@@ -4,10 +4,11 @@ param (
     [string]$configuration = "FAKE_XRM_EASY_9",
     [string]$projectName = "FakeXrmEasy.Abstractions",
     [string]$projectPath = "src/FakeXrmEasy.Abstractions",
-    [string]$packageIdPrefix = "FakeXrmEasy.Abstractions"
+    [string]$packageIdPrefix = "FakeXrmEasy.Abstractions",
+    [string]$packTests = ""
  )
 
-Write-Host "Packing configuration '$($configuration)', for project '$($projectName)' at '$($projectPath)'..."
+Write-Host "Packing configuration '$($configuration)', for project '$($projectName)' at '$($projectPath)', packTests='$($packTests)'..."
 
 $packageId = $packageIdPrefix;
 
@@ -40,33 +41,33 @@ $tempNupkgFolder = './nupkgs'
 
 Write-Host "Building..."
 
-./build.ps1 -targetFramework $targetFrameworks -configuration $configuration
+./build.ps1 -targetFramework $targetFrameworks -configuration $configuration -packTests $packTests
 
 Write-Host "Packing assembly for targetFrameworks $($targetFrameworks)..."
 if($targetFrameworks -eq "all")
 {
     if($versionSuffix -eq "") 
     {
-        dotnet pack --no-build --no-restore --configuration $configuration -p:PackageID=$packageId -o $tempNupkgFolder $projectPath/$projectName.csproj
+        dotnet pack --no-build --no-restore --configuration $configuration -p:PackageID=$packageId -p:PackTests=$packTests -o $tempNupkgFolder $projectPath/$projectName.csproj
     }
     else {
-        dotnet pack --no-build --no-restore --configuration $configuration -p:PackageID=$packageId -o $tempNupkgFolder $projectPath/$projectName.csproj --version-suffix $versionSuffix
+        dotnet pack --no-build --no-restore --configuration $configuration -p:PackageID=$packageId -p:PackTests=$packTests -o $tempNupkgFolder $projectPath/$projectName.csproj --version-suffix $versionSuffix
     }
 }
 else 
 {
     if($versionSuffix -eq "") 
     {
-        dotnet pack --no-build --no-restore --configuration $configuration -p:PackageID=$packageId -p:TargetFrameworks=$targetFrameworks -o $tempNupkgFolder $projectPath/$projectName.csproj
+        dotnet pack --no-build --no-restore --configuration $configuration -p:PackageID=$packageId -p:PackTests=$packTests -p:TargetFrameworks=$targetFrameworks -o $tempNupkgFolder $projectPath/$projectName.csproj
     }
     else {
-        dotnet pack --no-build --no-restore --configuration $configuration -p:PackageID=$packageId -p:TargetFrameworks=$targetFrameworks -o $tempNupkgFolder $projectPath/$projectName.csproj --version-suffix $versionSuffix
+        dotnet pack --no-build --no-restore --configuration $configuration -p:PackageID=$packageId -p:PackTests=$packTests -p:TargetFrameworks=$targetFrameworks -o $tempNupkgFolder $projectPath/$projectName.csproj --version-suffix $versionSuffix
     }
 }
 
 
 if(!($LASTEXITCODE -eq 0)) {
-    throw "Error when packing the assembly"
+    throw "Error when packing the assembly for package $($packageIdPrefix) and configuration $($configuration)"
 }
 
 Write-Host $("Pack $($packageId) Succeeded :)") -ForegroundColor Green

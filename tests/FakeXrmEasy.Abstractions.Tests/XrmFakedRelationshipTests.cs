@@ -4,6 +4,7 @@ using Xunit;
 
 namespace FakeXrmEasy.Abstractions.Tests
 {
+    
     public class XrmFakedRelationshipTests
     {
         [Fact]

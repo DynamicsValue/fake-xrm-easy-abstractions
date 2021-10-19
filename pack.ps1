@@ -1,4 +1,5 @@
 param (
+    [string]$packageSource = "local-packages",
     [string]$versionSuffix = "",
     [string]$targetFrameworks = "netcoreapp3.1"
  )
@@ -19,6 +20,12 @@ if(!($tempNupkgFolderExists))
 Write-Host "Deleting temporary nupkgs..."
 Get-ChildItem -Path $tempNupkgFolder -Include *.nupkg -File -Recurse | ForEach-Object { $_.Delete()}
 
-./pack-all-configurations.ps1 -targetFrameworks $targetFrameworks -versionSuffix $versionSuffix
+Write-Host "Packing src packages..."
+./pack-src.ps1 -targetFrameworks $targetFrameworks -versionSuffix $versionSuffix 
+./push.ps1 -packageSource $packageSource -packagePrefix "FakeXrmEasy.Abstractions"
+
+Write-Host "Packing test packages..."
+./pack-tests.ps1 -targetFrameworks $targetFrameworks -versionSuffix $versionSuffix
+./push.ps1 -packageSource $packageSource -packagePrefix "FakeXrmEasy.AbstractionsTests"   
 
 Write-Host "Pack Succeeded  :)" -ForegroundColor Green

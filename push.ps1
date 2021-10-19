@@ -1,8 +1,7 @@
 param (
-    [string]$packageSource = "local-packages"
+    [string]$packageSource = "local-packages",
+    [string]$packagePrefix = "FakeXrmEasy.Abstractions"
  )
-
-$project = "FakeXrmEasy.Abstractions"
 
 Write-Host "Running with packageSource '$($packageSource)'..."
 
@@ -14,11 +13,11 @@ $tempNupkgFolder = "nupkgs$($dirSeparator)**$($dirSeparator)*.nupkg"
 if($packageSource -eq "local-packages") {
     $localPackagesFolder = '../local-packages'
     Write-Host "Deleting previous pushed version '$($localPackagesFolder)'..."
-    $projectFilePattern = $project + ".*"
+    $projectFilePattern = $packagePrefix + ".*"
     Get-ChildItem -Path $localPackagesFolder -Include $projectFilePattern -File -Recurse | ForEach-Object { $_.Delete()}
 }
 
-Write-Host "Pushing '$($project)' to source '$($packageSource)' from '$($tempNupkgFolder)'..."
+Write-Host "Pushing '$($packagePrefix)' to source '$($packageSource)' from '$($tempNupkgFolder)'..."
 
 
 
