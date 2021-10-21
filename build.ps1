@@ -14,7 +14,15 @@ if(!($packagesFolderExists))
     New-Item $localPackagesFolder -ItemType Directory
 }
 
-dotnet restore /p:Configuration=$configuration /p:PackTests=$packTests
+if($targetFrameworks -eq "all")
+{
+    dotnet restore --no-cache /p:Configuration=$configuration /p:PackTests=$packTests
+}
+else {
+    dotnet restore --no-cache /p:Configuration=$configuration /p:PackTests=$packTests /p:TargetFrameworks=$targetFrameworks
+}
+
+
 if(!($LASTEXITCODE -eq 0)) {
     throw "Error restoring packages"
 }

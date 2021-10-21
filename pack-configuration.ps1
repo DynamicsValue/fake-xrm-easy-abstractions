@@ -8,7 +8,7 @@ param (
     [string]$packTests = ""
  )
 
-Write-Host "Packing configuration '$($configuration)', for project '$($projectName)' at '$($projectPath)', packTests='$($packTests)'..."
+Write-Host "Packing configuration for project '$($projectName)' with '$($configuration)' and targetFramework '$($targetFrameworks)' at '$($projectPath)', packTests='$($packTests)'..." -ForegroundColor Yellow
 
 $packageId = $packageIdPrefix;
 
@@ -41,7 +41,7 @@ $tempNupkgFolder = './nupkgs'
 
 Write-Host "Building..."
 
-./build.ps1 -targetFramework $targetFrameworks -configuration $configuration -packTests $packTests
+./build.ps1 -targetFrameworks $targetFrameworks -configuration $configuration -packTests $packTests
 
 Write-Host "Packing assembly for targetFrameworks $($targetFrameworks)..."
 if($targetFrameworks -eq "all")
