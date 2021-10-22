@@ -17,7 +17,7 @@
     <Authors>Jordi Montaña</Authors>
     <Company>Dynamics Value S.L.</Company>
     <Title>FakeXrmEasy Abstractions Tests</Title>
-    <PackageDescription>FakeXrmEasy is the open source test automation framework for .net core and the Power Platform / Dataverse. This is an abstractions package containing only interfaces</PackageDescription>
+    <PackageDescription>FakeXrmEasy is the open source test automation framework for .net core and the Power Platform / Dataverse. This is an internal package for regression testing purposes.</PackageDescription>
     <Copyright>(c) 2021 DynamicsValue S.L.</Copyright>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
