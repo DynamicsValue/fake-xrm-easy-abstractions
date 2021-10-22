@@ -19,8 +19,6 @@ if($packageSource -eq "local-packages") {
 
 Write-Host "Pushing '$($packagePrefix)' to source '$($packageSource)' from '$($tempNupkgFolder)'..."
 
-
-
 if($packageSource -eq "local-packages") {
     dotnet nuget push $tempNupkgFolder -s $packageSource
 }
