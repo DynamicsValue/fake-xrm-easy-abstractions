@@ -28,4 +28,4 @@ Write-Host "Packing test packages..."
 ./pack-tests.ps1 -targetFrameworks $targetFrameworks -versionSuffix $versionSuffix
 ./push.ps1 -packageSource $packageSource -packagePrefix "FakeXrmEasy.AbstractionsTests"   
 
-Write-Host "Pack Succeeded  :)" -ForegroundColor Green
+Write-Host " -> Pack-Push Succeeded  :)" -ForegroundColor Green
