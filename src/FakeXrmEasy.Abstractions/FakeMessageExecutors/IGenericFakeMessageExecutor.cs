@@ -3,7 +3,7 @@ namespace FakeXrmEasy.Abstractions.FakeMessageExecutors
     /// <summary>
     /// An interface that adds an additional method in order to discover generic requests by name
     /// </summary>
-    public interface IGenericFakeMessageExecutor : IBaseFakeMessageExecutor
+    public interface IGenericFakeMessageExecutor : IFakeMessageExecutor
     {
         /// <summary>
         /// The OrganizationRequest's RequestName property
