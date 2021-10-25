@@ -1,7 +1,6 @@
 
 
 using System;
-using Microsoft.Xrm.Sdk;
 
 namespace FakeXrmEasy.Abstractions.FakeMessageExecutors
 {
@@ -9,12 +8,12 @@ namespace FakeXrmEasy.Abstractions.FakeMessageExecutors
     /// An interface to delegate custom messages to be executed via a IOrganizationService.Execute method.
     /// Each executor is in charge of encapsulating a single request and declare which requests can handle via de CanExecute method
     /// </summary>
-    public interface IFakeMessageExecutor
+    public interface IFakeMessageExecutor: IBaseFakeMessageExecutor
     {
-        bool CanExecute(OrganizationRequest request);
-
+        /// <summary>
+        /// The concrete OrganizationRequest type that this executor is in charge of executing
+        /// </summary>
+        /// <returns></returns>
         Type GetResponsibleRequestType();
-
-        OrganizationResponse Execute(OrganizationRequest request, IXrmFakedContext ctx);
     }
 }
