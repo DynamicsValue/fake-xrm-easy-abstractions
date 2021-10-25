@@ -14,12 +14,22 @@ if(!($packagesFolderExists))
     New-Item $localPackagesFolder -ItemType Directory
 }
 
+Write-Host " -> Deleting previous dependencies..." -ForegroundColor Yellow
+$restoredPackagesFolder = './packages'
+$restoredPackagesFolderExists = Test-Path $restoredPackagesFolder -PathType Container
+
+if($restoredPackagesFolderExists) 
+{
+    Get-ChildItem -Path $restoredPackagesFolder -Include fakexrmeasy.* -Directory -Recurse -Force | Remove-Item -Recurse -Force
+}
+
+Write-Host " -> Restoring dependencies: configuration='$($configuration)', targetFramework='$($targetFrameworks)' PackTests=$($packTests)" -ForegroundColor Yellow
 if($targetFrameworks -eq "all")
 {
-    dotnet restore --no-cache --force /p:Configuration=$configuration /p:PackTests=$packTests
+    dotnet restore --no-cache --force /p:Configuration=$configuration /p:PackTests=$packTests --packages $restoredPackagesFolder
 }
 else {
-    dotnet restore --no-cache --force /p:Configuration=$configuration /p:PackTests=$packTests /p:TargetFrameworks=$targetFrameworks
+    dotnet restore --no-cache --force /p:Configuration=$configuration /p:PackTests=$packTests /p:TargetFrameworks=$targetFrameworks --packages $restoredPackagesFolder
 }
 
 
@@ -27,6 +37,7 @@ if(!($LASTEXITCODE -eq 0)) {
     throw "Error restoring packages"
 }
 
+Write-Host " -> Building: configuration='$($configuration)', targetFramework='$($targetFrameworks)' PackTests=$($packTests)" -ForegroundColor Yellow
 if($targetFrameworks -eq "all")
 {
     dotnet build --configuration $configuration --no-restore /p:PackTests=$packTests
@@ -39,7 +50,7 @@ else
 if(!($LASTEXITCODE -eq 0)) {
     throw "Error during build step"
 }
-
+Write-Host " -> Testing: configuration='$($configuration)', targetFramework='$($targetFrameworks)' PackTests=$($packTests)" -ForegroundColor Yellow
 if($targetFrameworks -eq "all")
 {
     dotnet test --configuration $configuration --no-restore --verbosity normal /p:PackTests=$packTests --collect:"XPlat code coverage" --settings tests/.runsettings --results-directory ./coverage
