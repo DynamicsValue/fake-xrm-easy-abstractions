@@ -7,6 +7,13 @@ namespace FakeXrmEasy.Abstractions.Tests.FakeMessageExecutors
     public class GenericMessageExecutorsTests
     {
         [Fact]
+        public void Should_create_empty_generic_message_executors_collection()
+        {
+            var messageExecutors = new GenericMessageExecutors();
+            Assert.NotNull(messageExecutors);
+        }
+
+        [Fact]
         public void Should_create_message_executors_instance()
         {
             var other = new Dictionary<string, IFakeMessageExecutor>();
