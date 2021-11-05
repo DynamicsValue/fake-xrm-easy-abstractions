@@ -1,5 +1,6 @@
 ﻿using FakeXrmEasy.Abstractions.Enums;
 using FakeXrmEasy.Abstractions.Exceptions;
+using Microsoft.PowerPlatform.Dataverse.Client;
 using Microsoft.Xrm.Sdk;
 using Xunit;
 
@@ -11,12 +12,12 @@ namespace FakeXrmEasy.Abstractions.Tests.Exceptions
         {
             public FakeXrmEasyLicense? LicenseContext { get; set; }
 
-            public IOrganizationService GetAsyncOrganizationService()
+            public IOrganizationServiceAsync GetAsyncOrganizationService()
             {
                 throw new System.NotImplementedException();
             }
 
-            public IOrganizationService GetAsyncOrganizationService2()
+            public IOrganizationServiceAsync2 GetAsyncOrganizationService2()
             {
                 throw new System.NotImplementedException();
             }
