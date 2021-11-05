@@ -11,6 +11,16 @@ namespace FakeXrmEasy.Abstractions.Tests.Exceptions
         {
             public FakeXrmEasyLicense? LicenseContext { get; set; }
 
+            public IOrganizationService GetAsyncOrganizationService()
+            {
+                throw new System.NotImplementedException();
+            }
+
+            public IOrganizationService GetAsyncOrganizationService2()
+            {
+                throw new System.NotImplementedException();
+            }
+
             public IOrganizationService GetOrganizationService()
             {
                 throw new System.NotImplementedException();

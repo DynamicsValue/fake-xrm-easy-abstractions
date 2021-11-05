@@ -16,6 +16,18 @@ namespace FakeXrmEasy.Abstractions
         /// <returns></returns>
         IOrganizationService GetOrganizationService();
 
+        /// <summary>
+        /// Returns an instance of an organization service whith async support but without cancellation tokens
+        /// </summary>
+        /// <returns></returns>
+        IOrganizationService GetAsyncOrganizationService();
+
+        /// <summary>
+        /// Returns an instance of an organization service whith async support with cancellation tokens
+        /// </summary>
+        /// <returns></returns>
+        IOrganizationService GetAsyncOrganizationService2();
+
         //Set a value of a specific custom property of a given type
         void SetProperty<T>(T property);
 
