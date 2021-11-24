@@ -3,6 +3,9 @@ using Microsoft.Xrm.Sdk;
 
 namespace FakeXrmEasy.Abstractions
 {
+    /// <summary>
+    /// Base Xrm Context
+    /// </summary>
     public interface IXrmBaseContext 
     {
         /// <summary>
@@ -16,7 +19,11 @@ namespace FakeXrmEasy.Abstractions
         /// <returns></returns>
         IOrganizationService GetOrganizationService();
 
-        //Set a value of a specific custom property of a given type
+        /// <summary>
+        /// Set a value of a specific custom property of a given type
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="property"></param>
         void SetProperty<T>(T property);
 
         /// <summary>
@@ -25,7 +32,11 @@ namespace FakeXrmEasy.Abstractions
         /// <returns>The property requested or exception if property wasn't set before</returns>
         T GetProperty<T>();
 
-        //True if property was set, false otherwise
+        /// <summary>
+        /// True if property was set, false otherwise
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         bool HasProperty<T>();
     }
 }

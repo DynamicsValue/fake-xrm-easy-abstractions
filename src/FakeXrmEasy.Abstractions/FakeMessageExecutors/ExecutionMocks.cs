@@ -9,6 +9,9 @@ namespace FakeXrmEasy.Abstractions.FakeMessageExecutors
     /// </summary>
     public class ExecutionMocks : Dictionary<Type, OrganizationRequestExecution>
     {
+        /// <summary>
+        /// Contains a collection of execution mocks indexed by the type of OrganizationRequest
+        /// </summary>
         public ExecutionMocks() { }
     }
 }

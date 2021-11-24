@@ -1,5 +1,8 @@
 namespace FakeXrmEasy.Abstractions
 {
+    /// <summary>
+    /// Fake Relationship
+    /// </summary>
     public class XrmFakedRelationship
     {
         private string entity1Attribute = string.Empty;
@@ -29,8 +32,14 @@ namespace FakeXrmEasy.Abstractions
             set { entity1Attribute = value; }
         }
 
+        /// <summary>
+        /// Entity1 Logical Name
+        /// </summary>
         public string Entity1LogicalName { get; set; }
 
+        /// <summary>
+        /// Entity2 Logical Name
+        /// </summary>
         public string Entity2LogicalName { get; set; }
 
         /// <summary>
@@ -52,14 +61,29 @@ namespace FakeXrmEasy.Abstractions
             set { entity2Attribute = value; }
         }
 
+        /// <summary>
+        /// Relationship Type
+        /// </summary>
         public enum FakeRelationshipType
         {
+            /// <summary>
+            /// Many to Many
+            /// </summary>
             ManyToMany = 0,
+            /// <summary>
+            /// One to Many
+            /// </summary>
             OneToMany = 1
         }
 
+        /// <summary>
+        /// Relationship Type
+        /// </summary>
         public FakeRelationshipType RelationshipType { get; set; }
 
+        /// <summary>
+        ///  Fake Relationship
+        /// </summary>
         public XrmFakedRelationship()
         {
             RelationshipType = FakeRelationshipType.ManyToMany;
@@ -83,6 +107,13 @@ namespace FakeXrmEasy.Abstractions
             RelationshipType = FakeRelationshipType.ManyToMany;
         }
 
+        /// <summary>
+        /// Initializes a 1:N relationship type
+        /// </summary>
+        /// <param name="entity1Attribute"></param>
+        /// <param name="entity2Attribute"></param>
+        /// <param name="entity1LogicalName"></param>
+        /// <param name="entity2LogicalName"></param>
         public XrmFakedRelationship(string entity1Attribute, string entity2Attribute, string entity1LogicalName, string entity2LogicalName)
         {
             Entity1Attribute = entity1Attribute;
