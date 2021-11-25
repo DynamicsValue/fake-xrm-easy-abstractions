@@ -23,6 +23,15 @@ if($restoredPackagesFolderExists)
     Get-ChildItem -Path $restoredPackagesFolder -Include fakexrmeasy.* -Directory -Recurse -Force | Remove-Item -Recurse -Force
 }
 
+Write-Host " -> Cleaning..." -ForegroundColor Yellow
+if($targetFrameworks -eq "all")
+{
+    dotnet clean /p:Configuration=$configuration /p:PackTests=$packTests
+}
+else {
+    dotnet clean /p:Configuration=$configuration /p:PackTests=$packTests /p:TargetFrameworks=$targetFrameworks
+}
+
 Write-Host " -> Restoring dependencies: configuration='$($configuration)', targetFramework='$($targetFrameworks)' PackTests=$($packTests)" -ForegroundColor Yellow
 if($targetFrameworks -eq "all")
 {

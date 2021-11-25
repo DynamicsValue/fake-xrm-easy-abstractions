@@ -18,12 +18,13 @@
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageIcon>FakeXrmEasyLogo_128x128.png</PackageIcon>
-    <PackageTags>dynamics;crm;365;unit testing;xrm;mock;mocking;fake;fakes;cds;common data service;power platform</PackageTags>
+    <PackageTags>dynamics;crm;365;unit testing;xrm;mock;mocking;fake;fakes;cds;common data service;power platform;dataverse</PackageTags>
     <RepositoryUrl>https://github.com/DynamicsValue/fake-xrm-easy-abstractions</RepositoryUrl>
     <Configurations>Debug;Release;FAKE_XRM_EASY_9;FAKE_XRM_EASY_365;FAKE_XRM_EASY_2016;FAKE_XRM_EASY_2015;FAKE_XRM_EASY_2013;FAKE_XRM_EASY</Configurations>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyOriginatorKeyFile>..\..\fakexrmeasy.snk</AssemblyOriginatorKeyFile>
 		<SignAssembly>True</SignAssembly>
+    <PublicSign Condition="'$(OS)'=='Unix'">true</PublicSign>
   </PropertyGroup>
 
   <ItemGroup>

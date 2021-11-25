@@ -1,5 +1,8 @@
 ﻿namespace FakeXrmEasy.Abstractions
 {
+    /// <summary>
+    /// All Error Codes
+    /// </summary>
     public enum ErrorCodes
     {
 
@@ -11334,7 +11337,7 @@
         ProfileRuleWorkflowAuthorGenericError = -2147086079,
 
         /// <summary>
-        /// To enable auto capture, you need to&nbsp;set up Cortana Intelligence Customer Insights in Relationship Insights settings.
+        /// To enable auto capture, you need to set up Cortana Intelligence Customer Insights in Relationship Insights settings.
         /// </summary>
         ProvisioningNotCompleted = -2146889660,
 

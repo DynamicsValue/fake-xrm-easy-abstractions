@@ -3,6 +3,9 @@ using Microsoft.Xrm.Sdk;
 
 namespace FakeXrmEasy.Abstractions.Permissions
 {
+    /// <summary>
+    /// Access Rights Repository
+    /// </summary>
     public interface IAccessRightsRepository
     {
         /// <summary>
@@ -16,7 +19,7 @@ namespace FakeXrmEasy.Abstractions.Permissions
         /// Revokes the specified rights to the security principal (user or team) for the specified record
         /// </summary>
         /// <param name="er"></param>
-        /// <param name="pa"></param>
+        /// <param name="principal"></param>
         void RevokeAccessTo(EntityReference er, EntityReference principal);
 
         /// <summary>
