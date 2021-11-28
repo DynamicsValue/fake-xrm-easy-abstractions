@@ -13,6 +13,25 @@ env:
   source-url: "https://nuget.pkg.github.com/${{github.repository_owner}}/index.json"
 
 jobs:
+  changelog:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository
+      - uses: actions/checkout@v2
+
+      - name: Run Changelog CI
+        uses: saadmk11/changelog-ci@v1.0.0
+        with:
+          # Optional, only required when you want more customization
+          # e.g: group your changelog by labels with custom titles,
+          # different version prefix, pull request title and version number regex etc.
+          # config file can be in JSON or YAML format.
+          config_file: changelog-ci-config.json
+          release_version: '2.0.1-rc1'
+          # Optional
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          
   build-netcore:
     strategy:
       fail-fast: false 
