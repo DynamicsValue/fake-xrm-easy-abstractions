@@ -1,17 +1,13 @@
 {
-    "changelog_type": "commit_message",
+    "changelog_type": "pull_request",
     "header_prefix": "Version:",
     "commit_changelog": true,
     "comment_changelog": true,
     "include_unlabeled_changes": true,
     "unlabeled_group_title": "Unlabeled Changes",
-    "pull_request_title_regex": "^main",
+    "pull_request_title_regex": "^2x-dev",
     "version_regex": "v?([0-9]{1,2})+[.]+([0-9]{1,2})+[.]+([0-9]{1,2})\\s\\(\\d{1,2}-\\d{1,2}-\\d{4}\\)",
     "group_config": [
-      {
-        "title": "Breaking Changes",
-        "labels": ["breaking"]
-      },
       {
         "title": "Bug Fixes",
         "labels": ["bug", "bugfix"]
@@ -22,7 +18,7 @@
       },
       {
         "title": "New Features",
-        "labels": ["feature", "feat"]
+        "labels": ["feature"]
       },
       {
         "title": "Documentation Updates",
