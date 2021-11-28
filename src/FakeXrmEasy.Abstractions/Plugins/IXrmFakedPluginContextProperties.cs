@@ -48,3 +48,4 @@ namespace FakeXrmEasy.Abstractions.Plugins
         IServiceProvider GetServiceProvider(XrmFakedPluginExecutionContext plugCtx);
     }
 }
+
