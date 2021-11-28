@@ -88,8 +88,7 @@ namespace FakeXrmEasy.Abstractions
         /// </summary>
         /// <param name="e"></param>
         /// <param name="clone"></param>
-        /// <param name="usePluginPipeline"></param>
-        void AddEntityWithDefaults(Entity e, bool clone = false, bool usePluginPipeline = false);
+        void AddEntityWithDefaults(Entity e, bool clone = false);
 
         /// <summary>
         /// Create Entity
