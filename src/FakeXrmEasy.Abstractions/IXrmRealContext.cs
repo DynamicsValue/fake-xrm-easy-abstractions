@@ -5,9 +5,6 @@ namespace FakeXrmEasy.Abstractions
     /// </summary>
     public interface IXrmRealContext: IXrmBaseContext 
     {
-        /// <summary>
-        /// Connection String to connect to the real instance
-        /// </summary>
-        string ConnectionStringName { get; set; }
+
     }
 }
