@@ -32,6 +32,16 @@ This project welcomes contributions and suggestions. Most contributions require 
 
 When you submit a pull request, a CLA-bot will automatically determine whether you need to provide a CLA and decorate the PR appropriately (e.g., label, comment). Simply follow the instructions provided by the bot. You will only need to do this once across all repos using our CLA. 
 
+## ChangeLog
+-----------------------------------------------------
+A new changelog file has been added that follow the principles of [Keep A ChangeLog 1.0.0](https://keepachangelog.com/en/1.0.0/)
+
+- Added: for new features
+- Changed: for changes in existing functionality
+- Deprecated: for soon-to-be-removed features
+- Fixed: for any bug fixes
+- Security: in case of vulnerabilities
+
 ## License
 -------------------
 
