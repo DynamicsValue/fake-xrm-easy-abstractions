@@ -69,8 +69,8 @@ jobs:
       - name: Disable local packages feed
         run: dotnet nuget disable source "local-packages"
 
-      - name: Enable GitHub packages feed
-        run: dotnet nuget enable source github
+      - name: Disable GitHub packages feed to restore dotnet-sonarscanner from nuget
+        run: dotnet nuget disable source github
 
       - name: Install SonarCloud scanner
         if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
@@ -78,6 +78,10 @@ jobs:
         run: |
           New-Item -Path .\.sonar\scanner -ItemType Directory
           dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
+
+      - name: Enable GitHub packages feed again for build
+        run: dotnet nuget enable source github
+
       - name: Build and analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
