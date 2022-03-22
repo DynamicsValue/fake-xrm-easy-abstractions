@@ -4,6 +4,7 @@
 
 Added Logger property to IXrmFakedPluginContextProperties - DynamicsValue/fake-xrm-easy#24
 
+
 ### Changed 
 
 Upgraded Microsoft.CrmSdk.CoreAssemblies to 9.0.2.27 to support the new ILogger interface - DynamicsValue/fake-xrm-easy#24
