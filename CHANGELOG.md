@@ -6,6 +6,7 @@
 - Updated build script to also include the major version in the Title property of the generated .nuspec file - DynamicsValue/fake-xrm-easy#41
 
 ## [3.1.0]
+
 ### Added
 
 - Added Logger property to IXrmFakedPluginContextProperties - DynamicsValue/fake-xrm-easy#24
