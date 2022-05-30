@@ -50,8 +50,8 @@ namespace FakeXrmEasy.Abstractions
         /// <summary>
         /// Same as GetEntityById&lt;T&gt; but for late bound entities
         /// </summary>
-        /// <param name="logicalName"></param>
-        /// <param name="id"></param>
+        /// <param name="logicalName">Logical name of the entity record to retrieve</param>
+        /// <param name="id">Primary key of the entity record to retrieve</param>
         /// <returns></returns>
         Entity GetEntityById(string logicalName, Guid id);
 
