@@ -1,4 +1,6 @@
+## [3.1.2]
 
+- Bump Dataverse dependency from 0.6.1 to production ready version 1.0.1
 ## [3.1.1]
 
 ### Changed
