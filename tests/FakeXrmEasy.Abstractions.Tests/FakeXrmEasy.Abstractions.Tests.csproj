@@ -34,7 +34,7 @@
     <None Include="../../FakeXrmEasyLogo_128x128.png" Pack="true" PackagePath="/" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
+  <ItemGroup>
     <PackageReference Include="Microsoft.PowerPlatform.Dataverse.Client" Version="1.0.1" />
     <PackageReference Include="Microsoft.PowerPlatform.Dataverse.Client.Dynamics" Version="1.0.1" />
   </ItemGroup>
