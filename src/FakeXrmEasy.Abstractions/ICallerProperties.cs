@@ -17,3 +17,4 @@ namespace FakeXrmEasy.Abstractions
         EntityReference BusinessUnitId { get; set; }
     }
 }
+
