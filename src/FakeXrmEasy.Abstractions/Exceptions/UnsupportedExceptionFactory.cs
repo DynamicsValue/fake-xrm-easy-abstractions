@@ -6,7 +6,7 @@ namespace FakeXrmEasy.Abstractions.Exceptions
     /// <summary>
     /// A factory class to raise unsupported exceptions based on the current license context
     /// </summary>
-    public class UnsupportedExceptionFactory
+    public static class UnsupportedExceptionFactory
     {
         /// <summary>
         /// Returns a new general purpose exception based on the current license context
