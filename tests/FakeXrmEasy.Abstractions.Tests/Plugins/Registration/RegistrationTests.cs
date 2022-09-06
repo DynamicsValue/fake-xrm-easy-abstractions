@@ -1,5 +1,6 @@
 ﻿using FakeXrmEasy.Abstractions.Plugins.Enums;
 using FakeXrmEasy.Abstractions.Plugins.Registration;
+using System;
 using Xunit;
 
 namespace FakeXrmEasy.Abstractions.Tests.Plugins.Registration
@@ -29,6 +30,23 @@ namespace FakeXrmEasy.Abstractions.Tests.Plugins.Registration
             Assert.Null(pluginStepImageRegistration.Name);
             Assert.Equal(ProcessingStepImageType.PreImage, pluginStepImageRegistration.ImageType);
             Assert.Null(pluginStepImageRegistration.Attributes);
+        }
+
+        [Fact]
+        public void Should_create_plugin_registration_step_image_with_properties()
+        {
+            var pluginStepImageRegistration = new PluginStepImageRegistrationAttribute()
+            {
+                StepId = Guid.NewGuid().ToString(),
+                Name = "PostImage",
+                Attributes = new string[] { },
+                ImageType = ProcessingStepImageType.PostImage,
+            };
+
+            Assert.NotNull(pluginStepImageRegistration.StepId);
+            Assert.NotNull(pluginStepImageRegistration.Name);
+            Assert.Equal(ProcessingStepImageType.PostImage, pluginStepImageRegistration.ImageType);
+            Assert.NotNull(pluginStepImageRegistration.Attributes);
         }
     }
 }
