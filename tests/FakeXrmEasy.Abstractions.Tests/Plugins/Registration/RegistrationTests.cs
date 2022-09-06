@@ -21,6 +21,28 @@ namespace FakeXrmEasy.Abstractions.Tests.Plugins.Registration
         }
 
         [Fact]
+        public void Should_create_plugin_registration_step()
+        {
+            var pluginStepRegistration = new PluginStepRegistrationAttribute()
+            {
+                Id = Guid.NewGuid().ToString(),
+                Rank = 2,
+                Stage = ProcessingStepStage.Preoperation,
+                Mode = ProcessingStepMode.Asynchronous,
+                MessageName = "Create",
+                EntityLogicalName = "account",
+                FilteringAttributes = new string[] { }
+            };
+            Assert.Equal(2, pluginStepRegistration.Rank);
+            Assert.Equal(ProcessingStepStage.Preoperation, pluginStepRegistration.Stage);
+            Assert.Equal(ProcessingStepMode.Asynchronous, pluginStepRegistration.Mode);
+            Assert.NotNull(pluginStepRegistration.Id);
+            Assert.NotNull(pluginStepRegistration.FilteringAttributes);
+            Assert.Equal("Create", pluginStepRegistration.MessageName);
+            Assert.Equal("account", pluginStepRegistration.EntityLogicalName);
+        }
+
+        [Fact]
         public void Should_create_plugin_registration_step_image_with_defaults()
         {
             var pluginStepImageRegistration = new PluginStepImageRegistrationAttribute();
@@ -40,7 +62,7 @@ namespace FakeXrmEasy.Abstractions.Tests.Plugins.Registration
                 StepId = Guid.NewGuid().ToString(),
                 Name = "PostImage",
                 Attributes = new string[] { },
-                ImageType = ProcessingStepImageType.PostImage,
+                ImageType = ProcessingStepImageType.PostImage
             };
 
             Assert.NotNull(pluginStepImageRegistration.StepId);
