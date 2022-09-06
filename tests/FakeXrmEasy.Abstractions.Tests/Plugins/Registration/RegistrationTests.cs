@@ -13,6 +13,10 @@ namespace FakeXrmEasy.Abstractions.Tests.Plugins.Registration
             Assert.Equal(1, pluginStepRegistration.Rank);
             Assert.Equal(ProcessingStepStage.Postoperation, pluginStepRegistration.Stage);
             Assert.Equal(ProcessingStepMode.Synchronous, pluginStepRegistration.Mode);
+            Assert.Null(pluginStepRegistration.Id);
+            Assert.Null(pluginStepRegistration.FilteringAttributes);
+            Assert.Null(pluginStepRegistration.MessageName);
+            Assert.Null(pluginStepRegistration.EntityLogicalName);
         }
 
         [Fact]
@@ -20,6 +24,11 @@ namespace FakeXrmEasy.Abstractions.Tests.Plugins.Registration
         {
             var pluginStepImageRegistration = new PluginStepImageRegistrationAttribute();
             Assert.NotNull(pluginStepImageRegistration);
+
+            Assert.Null(pluginStepImageRegistration.StepId);
+            Assert.Null(pluginStepImageRegistration.Name);
+            Assert.Equal(ProcessingStepImageType.PreImage, pluginStepImageRegistration.ImageType);
+            Assert.Null(pluginStepImageRegistration.Attributes);
         }
     }
 }
