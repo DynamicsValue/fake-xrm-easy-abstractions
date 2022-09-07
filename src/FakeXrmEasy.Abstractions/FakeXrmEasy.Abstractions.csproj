@@ -9,7 +9,7 @@
     <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY_2013'">netcoreapp3.1</TargetFrameworks>
     <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY'">netcoreapp3.1</TargetFrameworks>
     <PackageId>FakeXrmEasy.Abstractions</PackageId>
-    <VersionPrefix>3.1.2</VersionPrefix>
+    <VersionPrefix>3.2.0</VersionPrefix>
     <Authors>Jordi Montaña</Authors>
     <Company>Dynamics Value</Company>
     <Title>FakeXrmEasy Abstractions</Title>
@@ -39,8 +39,8 @@
 
    <Target Name="PreparePackageReleaseNotesFromFile" BeforeTargets="GenerateNuspec">
     <Message Text="Value of MSBuildProjectDirectory = '$(MSBuildProjectDirectory)'" />
-    <ReadLinesFromFile File="$(MSBuildProjectDirectory)/../../CHANGELOG.md" >
-      <Output TaskParameter="Lines" ItemName="ReleaseNoteLines"/>
+    <ReadLinesFromFile File="$(MSBuildProjectDirectory)/../../CHANGELOG.md">
+      <Output TaskParameter="Lines" ItemName="ReleaseNoteLines" />
     </ReadLinesFromFile>
     <Message Text="Value of Lines read = '@(ReleaseNoteLines, '%0a')'" />
     <PropertyGroup>

@@ -1,4 +1,11 @@
+## [3.2.0]
+
+### Changed
+
+- Remove PullRequestException and added different types of exceptions depending on the license context
 ## [3.1.2]
+
+### Changed
 
 - Bump Dataverse dependency from 0.6.1 to production ready version 1.0.1
 ## [3.1.1]
