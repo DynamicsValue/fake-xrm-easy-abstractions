@@ -3,6 +3,7 @@
 ### Changed
 
 - Move CallerProperties, GetTracingService and CallerProperties to IXrmBaseContext so the can be reused both in IXrmFakedContextand and IXrmRealContext interfaces - DynamicsValue/fake-xrm-easy#35
+- Move XrmFakedPluginExecutionContext to the Plugins package, ot'll be under FakeXrmEasy.Plugins as opposed to FakeXrmEasy.Abstractions.Plugins
 
 ## [2.2.0]
 
