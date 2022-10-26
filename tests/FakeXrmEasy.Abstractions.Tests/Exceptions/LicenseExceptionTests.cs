@@ -1,5 +1,6 @@
 ﻿using FakeXrmEasy.Abstractions.Enums;
 using FakeXrmEasy.Abstractions.Exceptions;
+using FakeXrmEasy.Abstractions.Plugins;
 using Microsoft.Xrm.Sdk;
 using Xunit;
 
@@ -21,6 +22,11 @@ namespace FakeXrmEasy.Abstractions.Tests.Exceptions
                 throw new System.NotImplementedException();
             }
 
+            public IXrmFakedTracingService GetTracingService()
+            {
+                throw new System.NotImplementedException();
+            }
+
             public bool HasProperty<T>()
             {
                 throw new System.NotImplementedException();
@@ -30,6 +36,9 @@ namespace FakeXrmEasy.Abstractions.Tests.Exceptions
             {
                 throw new System.NotImplementedException();
             }
+
+            public ICallerProperties CallerProperties { get; set; }
+            public IXrmFakedPluginContextProperties PluginContextProperties { get; set; }
         }
 
         [Fact]

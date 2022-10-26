@@ -14,17 +14,6 @@ namespace FakeXrmEasy.Abstractions
     public interface IXrmFakedContext: IXrmBaseContext
     {
         /// <summary>
-        /// Returns the caller properties, that is, the default user and business unit used to impersonate service calls
-        /// </summary>
-        ICallerProperties CallerProperties { get; set; }
-
-        /// <summary>
-        /// Returns an instance of a tracing service
-        /// </summary>
-        /// <returns></returns>
-        IXrmFakedTracingService GetTracingService();
-
-        /// <summary>
         /// Creates a queryable for a strongly-typed entity
         /// </summary>
         /// <typeparam name="T"></typeparam>
@@ -68,14 +57,12 @@ namespace FakeXrmEasy.Abstractions
         /// </summary>
         /// <param name="entities"></param>
         void Initialize(IEnumerable<Entity> entities);
-        
-        /// Initializes the context with a single entity when only one is needed
-        void Initialize(Entity entity);
 
         /// <summary>
-        /// PluginContext Properties
+        ///  Initializes the context with a single entity when only one is needed
         /// </summary>
-        IXrmFakedPluginContextProperties PluginContextProperties { get; set; }
+        /// <param name="entity">The entity to initialize the context with</param>
+        void Initialize(Entity entity);
 
         /// <summary>
         /// Add Entity

@@ -1,3 +1,9 @@
+## [2.3.0]
+
+### Changed
+
+- Move CallerProperties, GetTracingService and CallerProperties to IXrmBaseContext so the can be reused both in IXrmFakedContextand and IXrmRealContext interfaces - DynamicsValue/fake-xrm-easy#35
+
 ## [2.2.0]
 
 - Remove PullRequestException and added different types of exceptions depending on the license context
