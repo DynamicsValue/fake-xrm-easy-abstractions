@@ -53,7 +53,7 @@ namespace FakeXrmEasy.Abstractions.Plugins
         /// </summary>
         /// <param name="plugCtx"></param>
         /// <returns></returns>
-        IServiceProvider GetServiceProvider(XrmFakedPluginExecutionContext plugCtx);
+        IServiceProvider GetServiceProvider(IPluginExecutionContext plugCtx);
     }
 }
 
