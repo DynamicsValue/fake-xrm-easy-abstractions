@@ -1,6 +1,5 @@
 ﻿using FakeXrmEasy.Abstractions.Plugins.Enums;
 using System;
-using System.Collections.Generic;
 
 namespace FakeXrmEasy.Abstractions.Plugins.Registration
 {

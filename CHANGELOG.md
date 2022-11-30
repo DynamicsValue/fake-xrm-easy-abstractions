@@ -1,9 +1,13 @@
 ## [2.3.0]
 
+### Added 
+
+- Add new ICustomApiFakeMessageExecutor and IGenericCustomApiFakeMessageExecutor interfaces to allow custom API execution with an optional plugin type as part of the Main Operation stage
+ 
 ### Changed
 
 - Move CallerProperties, GetTracingService and CallerProperties to IXrmBaseContext so the can be reused both in IXrmFakedContextand and IXrmRealContext interfaces - DynamicsValue/fake-xrm-easy#35
-- Move XrmFakedPluginExecutionContext to the Plugins package, ot'll be under FakeXrmEasy.Plugins as opposed to FakeXrmEasy.Abstractions.Plugins
+- Move XrmFakedPluginExecutionContext to the Plugins package, it'll be under FakeXrmEasy.Plugins as opposed to FakeXrmEasy.Abstractions.Plugins
 
 ## [2.2.0]
 
