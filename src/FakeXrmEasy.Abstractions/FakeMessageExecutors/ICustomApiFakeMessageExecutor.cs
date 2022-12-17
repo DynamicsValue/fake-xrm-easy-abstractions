@@ -3,26 +3,34 @@
 namespace FakeXrmEasy.Abstractions.FakeMessageExecutors
 {
     /// <summary>
-    /// An early bound api fake message executor can optionally define an IPlugin type to execute when the 
-    /// message is executed
+    /// Common interface for both strongly-typed and late bound custom api executors
     /// </summary>
-    public interface ICustomApiFakeMessageExecutor: IFakeMessageExecutor
+    public interface IBaseCustomApiFakeMessageExecutor
     {
         /// <summary>
         /// The plugin to execute, if specified
         /// </summary>
         IPlugin PluginType { get; set; }
+
+        /// <summary>
+        /// The message name that will trigger this custom api execution
+        /// </summary>
+        string MessageName { get; set; }
+    }
+
+    /// <summary>
+    /// An early bound api fake message executor can optionally define an IPlugin type to execute when the 
+    /// message is executed
+    /// </summary>
+    public interface ICustomApiFakeMessageExecutor: IFakeMessageExecutor, IBaseCustomApiFakeMessageExecutor
+    {
     }
 
     /// <summary>
     /// A late bound custom api fake message executor can optionally define an IPlugin type to execute when the 
     /// message is executed
     /// </summary>
-    public interface IGenericCustomApiFakeMessageExecutor : IGenericFakeMessageExecutor
+    public interface IGenericCustomApiFakeMessageExecutor : IGenericFakeMessageExecutor, IBaseCustomApiFakeMessageExecutor
     {
-        /// <summary>
-        /// The plugin to execute, if specified
-        /// </summary>
-        IPlugin PluginType { get; set; }
     }
 }
