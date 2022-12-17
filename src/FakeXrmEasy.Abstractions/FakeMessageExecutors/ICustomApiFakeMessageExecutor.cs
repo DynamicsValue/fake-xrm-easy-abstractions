@@ -27,6 +27,11 @@ namespace FakeXrmEasy.Abstractions.FakeMessageExecutors
         /// The binding type of the custom api
         /// </summary>
         BindingType BindingType { get; }
+
+        /// <summary>
+        /// EntityLogicalName if this custom api is bound to an Entity
+        /// </summary>
+        string EntityLogicalName { get; }
     }
 
     /// <summary>
