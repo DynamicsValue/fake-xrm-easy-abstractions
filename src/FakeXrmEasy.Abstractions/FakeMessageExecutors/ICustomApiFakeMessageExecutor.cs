@@ -10,12 +10,12 @@ namespace FakeXrmEasy.Abstractions.FakeMessageExecutors
         /// <summary>
         /// The plugin to execute, if specified
         /// </summary>
-        IPlugin PluginType { get; set; }
+        IPlugin PluginType { get; }
 
         /// <summary>
         /// The message name that will trigger this custom api execution
         /// </summary>
-        string MessageName { get; set; }
+        string MessageName { get; }
     }
 
     /// <summary>
