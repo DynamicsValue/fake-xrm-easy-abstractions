@@ -1,4 +1,5 @@
-﻿using Microsoft.Xrm.Sdk;
+﻿using FakeXrmEasy.Abstractions.Enums.CustomApis;
+using Microsoft.Xrm.Sdk;
 
 namespace FakeXrmEasy.Abstractions.FakeMessageExecutors
 {
@@ -13,13 +14,23 @@ namespace FakeXrmEasy.Abstractions.FakeMessageExecutors
         IPlugin PluginType { get; }
 
         /// <summary>
-        /// The message name that will trigger this custom api execution
+        /// The message name of the OrganizationRequest that will trigger this custom api execution
         /// </summary>
         string MessageName { get; }
+
+        /// <summary>
+        /// The custom processing type of the custom api
+        /// </summary>
+        CustomProcessingStepType CustomProcessingType { get; }
+
+        /// <summary>
+        /// The binding type of the custom api
+        /// </summary>
+        BindingType BindingType { get; }
     }
 
     /// <summary>
-    /// An early bound api fake message executor can optionally define an IPlugin type to execute when the 
+    /// An early bound custom api fake message executor that can optionally define an IPlugin type to execute when the 
     /// message is executed
     /// </summary>
     public interface ICustomApiFakeMessageExecutor: IFakeMessageExecutor, IBaseCustomApiFakeMessageExecutor
@@ -27,7 +38,7 @@ namespace FakeXrmEasy.Abstractions.FakeMessageExecutors
     }
 
     /// <summary>
-    /// A late bound custom api fake message executor can optionally define an IPlugin type to execute when the 
+    /// A late bound custom api fake message executor that can optionally define an IPlugin type to execute when the 
     /// message is executed
     /// </summary>
     public interface IGenericCustomApiFakeMessageExecutor : IGenericFakeMessageExecutor, IBaseCustomApiFakeMessageExecutor
