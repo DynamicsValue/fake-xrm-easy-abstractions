@@ -1,5 +1,6 @@
 ﻿using FakeXrmEasy.Abstractions.Enums;
 using FakeXrmEasy.Abstractions.Exceptions;
+using FakeXrmEasy.Abstractions.Plugins;
 using Microsoft.PowerPlatform.Dataverse.Client;
 using Microsoft.Xrm.Sdk;
 using Xunit;
