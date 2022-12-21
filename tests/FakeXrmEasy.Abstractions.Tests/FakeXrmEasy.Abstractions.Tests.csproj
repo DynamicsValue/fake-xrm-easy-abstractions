@@ -94,5 +94,8 @@
   <ItemGroup Condition="'$(PackTests)' == 'true' And '$(Configuration)'=='FAKE_XRM_EASY_9'">
     <PackageReference Include="FakeXrmEasy.Abstractions.v9" Version="2.3.0-*" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Plugins\" />
+  </ItemGroup>
 
 </Project>
