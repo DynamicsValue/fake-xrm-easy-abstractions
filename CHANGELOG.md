@@ -1,3 +1,17 @@
+## [2.3.0]
+
+### Added 
+
+- Add new CustomApiFakeMessageExecutors property - https://github.com/DynamicsValue/fake-xrm-easy/issues/75
+- Add enums needed for CustomProcessingStepType and BindingTypes of custom apis - https://github.com/DynamicsValue/fake-xrm-easy/issues/75
+- Add IBaseCustomApiFakeMessageExecutor to better support both strongly-typed and late bound customa api when registering them in middleware - https://github.com/DynamicsValue/fake-xrm-easy/issues/50
+- Add new ICustomApiFakeMessageExecutor and IGenericCustomApiFakeMessageExecutor interfaces to allow custom API execution with an optional plugin type as part of the Main Operation stage - https://github.com/DynamicsValue/fake-xrm-easy/issues/50
+ 
+### Changed
+
+- Move CallerProperties, GetTracingService and CallerProperties to IXrmBaseContext so the can be reused both in IXrmFakedContextand and IXrmRealContext interfaces - DynamicsValue/fake-xrm-easy#35
+- Move XrmFakedPluginExecutionContext to the Plugins package, it'll be under FakeXrmEasy.Plugins as opposed to FakeXrmEasy.Abstractions.Plugins
+
 ## [2.2.0]
 
 - Remove PullRequestException and added different types of exceptions depending on the license context
