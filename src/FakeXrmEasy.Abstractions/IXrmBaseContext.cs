@@ -1,4 +1,5 @@
 using FakeXrmEasy.Abstractions.Enums;
+using FakeXrmEasy.Abstractions.Plugins;
 using Microsoft.PowerPlatform.Dataverse.Client;
 using Microsoft.Xrm.Sdk;
 
@@ -51,5 +52,21 @@ namespace FakeXrmEasy.Abstractions
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         bool HasProperty<T>();
+
+        /// <summary>
+        /// Returns the caller properties, that is, the default user and business unit used to impersonate service calls
+        /// </summary>
+        ICallerProperties CallerProperties { get; set; }
+
+        /// <summary>
+        /// Returns an instance of a tracing service
+        /// </summary>
+        /// <returns></returns>
+        IXrmFakedTracingService GetTracingService();
+
+        /// <summary>
+        /// PluginContext Properties
+        /// </summary>
+        IXrmFakedPluginContextProperties PluginContextProperties { get; set; }
     }
 }
