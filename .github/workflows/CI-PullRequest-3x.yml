@@ -88,7 +88,7 @@ jobs:
       run: dotnet nuget enable source github 
 
     - name: Quality Gate
-      uses: DynamicsValue/dotnet-sonarscanner@v2.3
+      uses: DynamicsValue/dotnet-sonarscanner@v2.4
       with:
         buildCommand: dotnet build . --configuration Debug --framework net6.0
         testCommand: dotnet test . --configuration Debug --framework net6.0 --verbosity normal --collect:"XPlat code coverage" --settings tests/.runsettings --results-directory ./coverage
