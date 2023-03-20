@@ -1,3 +1,7 @@
+## [3.4.0]
+
+- Bump DataverseClient dependency to target net6
+
 ## [3.3.0]
 
 ### Added 
