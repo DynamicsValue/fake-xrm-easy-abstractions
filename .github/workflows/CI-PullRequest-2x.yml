@@ -39,7 +39,7 @@ jobs:
       run: pwsh ./build.ps1 -configuration ${{matrix.configuration}} -targetFrameworks 'all'
       env: 
         NUGET_USERNAME: DynamicsValue
-        NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }} 
+        NUGET_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
 
   sonar:
     name: Sonar Quality Gate
