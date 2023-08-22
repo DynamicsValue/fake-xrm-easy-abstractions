@@ -2,6 +2,7 @@
 
 ### Changed 
 
+- Update CLA bot version
 - Update legacy CRM SDK 2011 dependency to use official MS package - https://github.com/DynamicsValue/fake-xrm-easy/issues/105
 
 ## [2.3.0]
