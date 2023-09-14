@@ -192,5 +192,12 @@ namespace FakeXrmEasy.Abstractions
         /// <param name="validate"></param>
         /// <returns></returns>
         Guid GetRecordUniqueId(EntityReference record, bool validate = true);
+
+        // <summary>
+        /// Creates a new entity record that is consistent with the current use of early-bound or late-bound entities by the current context
+        /// </summary>
+        /// <param name="logicalName">The entity logical name of the entity</param>
+        /// <returns>An early-bound record dif the context is already using early-bound entity records, a late bound entity otherwise</returns>
+        Entity NewEntityRecord(string logicalName);
     }
 }
