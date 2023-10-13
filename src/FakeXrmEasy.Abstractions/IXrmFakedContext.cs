@@ -102,6 +102,13 @@ namespace FakeXrmEasy.Abstractions
         /// <param name="logicalName"></param>
         /// <returns></returns>
         Type FindReflectedType(string logicalName);
+        
+        /// <summary>
+        /// Find reflected Type
+        /// </summary>
+        /// <param name="entityTypeCode"></param>
+        /// <returns></returns>
+        Type FindReflectedType(int entityTypeCode);
 
         /// <summary>
         /// Find reflected Attribute Type
@@ -193,7 +200,7 @@ namespace FakeXrmEasy.Abstractions
         /// <returns></returns>
         Guid GetRecordUniqueId(EntityReference record, bool validate = true);
 
-        // <summary>
+        /// <summary>
         /// Creates a new entity record that is consistent with the current use of early-bound or late-bound entities by the current context
         /// </summary>
         /// <param name="logicalName">The entity logical name of the entity</param>

@@ -1,3 +1,9 @@
+## [2.3.3]
+
+### Added
+
+- Added method to find early bound types by using their entityTypeCode
+
 ## [2.3.2]
 
 ### Changed 
