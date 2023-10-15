@@ -1,6 +1,14 @@
-## [3.4.0]
+## [3.3.3]
 
-- Bump DataverseClient dependency to target net6
+### Added
+
+- Added method to find early bound types by using their entityTypeCode
+
+### Changed 
+
+- Upgraded GitHub Actions to update Java major version to run SonarCloud analysis - https://github.com/DynamicsValue/fake-xrm-easy/issues/110
+- Update CLA bot version
+- Update legacy CRM SDK 2011 dependency to use official MS package - https://github.com/DynamicsValue/fake-xrm-easy/issues/105
 
 ## [3.3.0]
 
@@ -19,6 +27,7 @@
 ## [3.2.0]
 
 - Remove PullRequestException and added different types of exceptions depending on the license context
+
 ## [3.1.2]
 
 ### Changed
