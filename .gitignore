@@ -351,3 +351,6 @@ MigrationBackup/
 
 #Ignore Test results
 coverage/
+
+#Ignore JetBrains rider files
+.idea/
