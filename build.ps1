@@ -24,13 +24,10 @@ if($restoredPackagesFolderExists)
 }
 
 Write-Host " -> Cleaning..." -ForegroundColor Yellow
-if($targetFrameworks -eq "all")
-{
-    dotnet clean /p:Configuration=$configuration /p:PackTests=$packTests
-}
-else {
-    dotnet clean /p:Configuration=$configuration /p:PackTests=$packTests /p:TargetFrameworks=$targetFrameworks
-}
+./clean.ps1 -folderPath "./src/FakeXrmEasy.Abstractions/bin"
+./clean.ps1 -folderPath "./src/FakeXrmEasy.Abstractions/obj"
+./clean.ps1 -folderPath "./tests/FakeXrmEasy.Abstractions.Tests/bin"
+./clean.ps1 -folderPath "./tests/FakeXrmEasy.Abstractions.Tests/obj"
 
 Write-Host " -> Restoring dependencies: configuration='$($configuration)', targetFramework='$($targetFrameworks)' PackTests=$($packTests)" -ForegroundColor Yellow
 if($targetFrameworks -eq "all")
