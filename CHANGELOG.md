@@ -4,6 +4,7 @@
 
 - Set default build configuration in solution file to FAKE_XRM_EASY_9
 - build.ps1 improvements: do not build project twice (added --no-build) when running dotnet test, do not build again either when packing assemblies either: https://github.com/DynamicsValue/fake-xrm-easy/issues/119
+- Remove release notes from package description: https://github.com/DynamicsValue/fake-xrm-easy/issues/115
 
 ## [2.3.3]
 
