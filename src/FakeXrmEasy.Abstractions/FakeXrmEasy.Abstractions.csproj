@@ -65,13 +65,7 @@
     </ReadLinesFromFile>
     <Message Text="Value of Lines read = '@(ReleaseNoteLines, '%0a')'" />
     <PropertyGroup>
-      <PackageDescription>
-FakeXrmEasy is the open source test automation framework for .net core and the Power Platform / Dataverse. This is an abstractions package containing only interfaces.
-
-RELEASE NOTES
-------------------
-@(ReleaseNoteLines, '%0a')
-      </PackageDescription>
+      <PackageDescription>FakeXrmEasy is the open source test automation framework for .net core and the Power Platform / Dataverse. This is an abstractions package containing only interfaces.</PackageDescription>
       <PackageReleaseNotes>@(ReleaseNoteLines, '%0a')</PackageReleaseNotes>
     </PropertyGroup>
   </Target>
