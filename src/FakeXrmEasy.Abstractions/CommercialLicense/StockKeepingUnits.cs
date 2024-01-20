@@ -28,8 +28,19 @@ namespace FakeXrmEasy.Abstractions.CommercialLicense
         /// </summary>
         FXE_LAR_12 = 6,
         
+        /// <summary>
+        /// Business Plan
+        /// </summary>
         FXE_BUS_12 = 7,
+        
+        /// <summary>
+        /// Enterprise plan
+        /// </summary>
         FXE_ENT_12 = 8,
+        
+        /// <summary>
+        /// Ultimate plan
+        /// </summary>
         FXE_ULT_12 = 9,
     }
 }
