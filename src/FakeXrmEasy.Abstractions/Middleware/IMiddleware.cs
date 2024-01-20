@@ -21,6 +21,13 @@ namespace FakeXrmEasy.Abstractions.Middleware
         /// <param name="license"></param>
         /// <returns></returns>
         IMiddlewareBuilder SetLicense(FakeXrmEasyLicense license);
+        
+        /// <summary>
+        /// Use this method to set your license key when using a commercial license
+        /// </summary>
+        /// <param name="licenseKey">The license key provided to you</param>
+        /// <returns></returns>
+        IMiddlewareBuilder SetLicenseKey(string licenseKey);
 
         /// <summary>
         /// Adds a new delegate to the middleware. The order in which the delegates are "used" is important. They'll define the pipeline sequence basically.
