@@ -8,6 +8,11 @@ namespace FakeXrmEasy.Abstractions.CommercialLicense
     public interface ISubscriptionInfo
     {
         /// <summary>
+        /// SKU of the product this subscription represents
+        /// </summary>
+        StockKeepingUnits SKU { get; set; }
+        
+        /// <summary>
         /// True if the current subscription auto-renews 
         /// </summary>
         bool AutoRenews { get; set; }

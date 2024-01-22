@@ -1,45 +1,48 @@
 namespace FakeXrmEasy.Abstractions.CommercialLicense
 {
+    /// <summary>
+    /// Known SKUs of products
+    /// </summary>
     public enum StockKeepingUnits
     {
         /// <summary>
-        /// Monthly Boutique Subscription
+        /// FXE Monthly Boutique Subscription
         /// </summary>
         FXE_BOU_1 = 1,
         /// <summary>
-        /// Monthly Team Subscription
+        /// FXE Monthly Team Subscription
         /// </summary>
         FXE_TEA_1 = 2,
         /// <summary>
-        /// Monthly Large Subscription
+        /// FXE Monthly Large Subscription
         /// </summary>
         FXE_LAR_1 = 3,
         
         /// <summary>
-        /// Annual Boutique Subscription
+        /// FXE Annual Boutique Subscription
         /// </summary>
         FXE_BOU_12 = 4,
         /// <summary>
-        /// Annual Team Subscription
+        /// FXE Annual Team Subscription
         /// </summary>
         FXE_TEA_12 = 5,
         /// <summary>
-        /// Annual Large Subscription
+        /// FXE Annual Large Subscription
         /// </summary>
         FXE_LAR_12 = 6,
         
         /// <summary>
-        /// Business Plan
+        /// FXE Business Plan
         /// </summary>
         FXE_BUS_12 = 7,
         
         /// <summary>
-        /// Enterprise plan
+        /// FXE Enterprise plan
         /// </summary>
         FXE_ENT_12 = 8,
         
         /// <summary>
-        /// Ultimate plan
+        /// FXE Ultimate plan
         /// </summary>
         FXE_ULT_12 = 9,
     }
