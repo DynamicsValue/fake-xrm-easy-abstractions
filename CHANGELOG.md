@@ -2,7 +2,7 @@
 
 ## Added
 
-- Introduced optional subscription usage monitoring
+- *[Public Preview]* Introduced subscription usage monitoring
 
 ## Changed
 

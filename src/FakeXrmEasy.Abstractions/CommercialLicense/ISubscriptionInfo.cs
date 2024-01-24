@@ -8,6 +8,11 @@ namespace FakeXrmEasy.Abstractions.CommercialLicense
     public interface ISubscriptionInfo
     {
         /// <summary>
+        /// Customer Id
+        /// </summary>
+        string CustomerId { get; set; }
+        
+        /// <summary>
         /// SKU of the product this subscription represents
         /// </summary>
         StockKeepingUnits SKU { get; set; }

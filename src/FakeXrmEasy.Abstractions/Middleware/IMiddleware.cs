@@ -1,5 +1,6 @@
 using FakeXrmEasy.Abstractions.Enums;
 using System;
+using FakeXrmEasy.Abstractions.CommercialLicense;
 
 namespace FakeXrmEasy.Abstractions.Middleware
 {
@@ -18,16 +19,23 @@ namespace FakeXrmEasy.Abstractions.Middleware
         /// <summary>
         /// Use this method to choose between the available FakeXrmEasy licenses
         /// </summary>
-        /// <param name="license"></param>
+        /// <param name="license">The license you choose based on your organisation and use case. If unsure, please check the licensing FAQ: https://dynamicsvalue.github.io/fake-xrm-easy-docs/licensing/faq/</param>
         /// <returns></returns>
         IMiddlewareBuilder SetLicense(FakeXrmEasyLicense license);
         
         /// <summary>
         /// Use this method to set your license key when using a commercial license
         /// </summary>
-        /// <param name="licenseKey">The license key provided to you</param>
+        /// <param name="licenseKey">The license key that was provided by DynamicsValue to you</param>
         /// <returns></returns>
         IMiddlewareBuilder SetLicenseKey(string licenseKey);
+
+        /// <summary>
+        /// Use this method to provide an implementation for a subscription usage storage provider when you are using a commercial license and license key 
+        /// </summary>
+        /// <param name="storageProvider">An implementation of a ISubscriptionStorageProvider that is capable of reading and writing subscription usage data</param>
+        /// <returns></returns>
+        IMiddlewareBuilder SetSubscriptionUsageStorage(ISubscriptionStorageProvider storageProvider);
 
         /// <summary>
         /// Adds a new delegate to the middleware. The order in which the delegates are "used" is important. They'll define the pipeline sequence basically.

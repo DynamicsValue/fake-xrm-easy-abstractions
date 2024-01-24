@@ -14,8 +14,8 @@ namespace FakeXrmEasy.Abstractions.CommercialLicense
         DateTime LastTimeChecked { get; set; }
         
         /// <summary>
-        /// Information about all the users
+        /// Information about all the users using FakeXrmEasy
         /// </summary>
-        IEnumerable<ISubscriptionUserInfo> Users { get; set; }
+        ICollection<ISubscriptionUserInfo> Users { get; set; }
     }
 }
