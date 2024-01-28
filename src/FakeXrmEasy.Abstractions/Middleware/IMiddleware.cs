@@ -24,18 +24,13 @@ namespace FakeXrmEasy.Abstractions.Middleware
         IMiddlewareBuilder SetLicense(FakeXrmEasyLicense license);
         
         /// <summary>
-        /// Use this method to set your license key when using a commercial license
+        /// Use this method to provide an implementation for a subscription storage provider when you are using a commercial license and have a license key 
         /// </summary>
-        /// <param name="licenseKey">The license key that was provided by DynamicsValue to you</param>
+        /// <param name="storageProvider">An implementation of a ISubscriptionStorageProvider that is capable of reading and writing subscription usage data as well as your license key</param>
+        /// <param name="upgradeRequested">Set to true if you exceeded the number of users that your current subscription allows and you have already requested an upgrade to DynamicsValue via your organisation's established process</param>
+        /// <param name="renewalRequested">Set to true if your subscription expired and you have already requested an renewal to DynamicsValue via your organisation's established process</param>
         /// <returns></returns>
-        IMiddlewareBuilder SetLicenseKey(string licenseKey);
-
-        /// <summary>
-        /// Use this method to provide an implementation for a subscription usage storage provider when you are using a commercial license and license key 
-        /// </summary>
-        /// <param name="storageProvider">An implementation of a ISubscriptionStorageProvider that is capable of reading and writing subscription usage data</param>
-        /// <returns></returns>
-        IMiddlewareBuilder SetSubscriptionUsageStorage(ISubscriptionStorageProvider storageProvider);
+        IMiddlewareBuilder SetSubscriptionStorageProvider(ISubscriptionStorageProvider storageProvider, bool upgradeRequested = false, bool renewalRequested = false);
 
         /// <summary>
         /// Adds a new delegate to the middleware. The order in which the delegates are "used" is important. They'll define the pipeline sequence basically.

@@ -17,5 +17,10 @@ namespace FakeXrmEasy.Abstractions.CommercialLicense
         /// Information about all the users using FakeXrmEasy
         /// </summary>
         ICollection<ISubscriptionUserInfo> Users { get; set; }
+        
+        /// <summary>
+        /// Contains information when an upgrade has been requested
+        /// </summary>
+        ISubscriptionUpgradeRequest UpgradeInfo { get; set; }
     }
 }

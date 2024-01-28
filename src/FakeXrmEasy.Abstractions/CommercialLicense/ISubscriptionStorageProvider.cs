@@ -8,6 +8,12 @@ namespace FakeXrmEasy.Abstractions.CommercialLicense
     public interface ISubscriptionStorageProvider
     {
         /// <summary>
+        /// Returns your current FXE license key
+        /// </summary>
+        /// <returns></returns>
+        string GetLicenseKey();
+        
+        /// <summary>
         /// Reads the current subscription usage from the underlying store
         /// </summary>
         /// <returns>An object with all the current subscription usage data</returns>

@@ -2,7 +2,7 @@
 
 ## Added
 
-- *[Public Preview]* Introduced subscription usage monitoring
+- *[Alpha]* Introduced subscription usage monitoring based on customer feedback
 
 ## Changed
 
