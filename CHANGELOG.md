@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+## Added
+
+- *[Alpha]* Introduced subscription usage monitoring based on customer feedback
+
 ## Changed
 
 - Set default build configuration in solution file to FAKE_XRM_EASY_9
