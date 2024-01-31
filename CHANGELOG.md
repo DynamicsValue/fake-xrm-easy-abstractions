@@ -1,8 +1,8 @@
-## [Unreleased]
+## [2.4.0]
 
 ## Added
 
-- *[Alpha]* Introduced subscription usage monitoring based on customer feedback
+- **Alpha**: Introduced subscription usage monitoring based on customer feedback
 
 ## Changed
 
