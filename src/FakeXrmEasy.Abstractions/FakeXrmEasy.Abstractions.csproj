@@ -7,7 +7,7 @@
     <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY_2013'">net6.0</TargetFrameworks>
     <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY'">net6.0</TargetFrameworks>
     <PackageId>FakeXrmEasy.Abstractions</PackageId>
-    <VersionPrefix>3.3.3</VersionPrefix>
+    <VersionPrefix>3.4.0</VersionPrefix>
     <Authors>Jordi Montaña</Authors>
     <Company>Dynamics Value</Company>
     <Title>FakeXrmEasy Abstractions</Title>
@@ -42,13 +42,7 @@
     </ReadLinesFromFile>
     <Message Text="Value of Lines read = '@(ReleaseNoteLines, '%0a')'" />
     <PropertyGroup>
-      <PackageDescription>
-FakeXrmEasy is the open source test automation framework for .net core and the Power Platform / Dataverse. This is an abstractions package containing only interfaces.
-
-RELEASE NOTES
-------------------
-@(ReleaseNoteLines, '%0a')
-      </PackageDescription>
+      <PackageDescription>FakeXrmEasy is the open source test automation framework for .net core and the Power Platform / Dataverse. This is an abstractions package containing only interfaces.</PackageDescription>
       <PackageReleaseNotes>@(ReleaseNoteLines, '%0a')</PackageReleaseNotes>
     </PropertyGroup>
   </Target>
