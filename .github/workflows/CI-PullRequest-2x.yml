@@ -86,7 +86,7 @@ jobs:
       - id: lower-repo-owner
         shell: pwsh
         run: |
-           "::set-output name=repo_owner::$($env:GITHUB.REPOSITORY_OWNER.ToLowerInvariant())"
+           "::set-output name=repo_owner::$($env:GITHUB_REPOSITORY_OWNER.ToLowerInvariant())"
 
       - name: Build and analyze
         env:
