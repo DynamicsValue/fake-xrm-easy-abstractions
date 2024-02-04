@@ -87,11 +87,6 @@ jobs:
     - name: Enable GitHub packages feed
       run: dotnet nuget enable source github 
 
-    - id: lower-repo-owner
-      shell: pwsh
-      run: |
-        "::set-output name=repo_owner::$($env:GITHUB_REPOSITORY_OWNER.ToLowerInvariant())"
-
     - name: Quality Gate
       uses: DynamicsValue/dotnet-sonarscanner@v2.3
       with:
@@ -99,7 +94,7 @@ jobs:
         testCommand: dotnet test . --configuration Debug --framework netcoreapp3.1 --verbosity normal --collect:"XPlat code coverage" --settings tests/.runsettings --results-directory ./coverage
         projectKey: ${{ secrets.SONAR_PROJECT_KEY }}
         projectName: fake-xrm-easy-abstractions
-        sonarOrganisation: ${{ steps.lower-repo-owner.outputs.repo_owner }}
+        sonarOrganisation: ${{ vars.SONAR_ORG_NAME }}
         beginArguments: >
             /d:sonar.verbose="true"
             /d:sonar.qualitygate.wait="true"
