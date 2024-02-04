@@ -1,5 +1,5 @@
 param (
-    [string]$targetFrameworks = "net6.0"
+    [string]$targetFrameworks = "all"
  )
 
 Write-Host " -> Checking local packages..." -ForegroundColor Yellow
