@@ -83,11 +83,6 @@ jobs:
       - name: Enable GitHub packages feed again for build
         run: dotnet nuget enable source github
 
-      - id: lower-repo-owner
-        shell: pwsh
-        run: |
-           "::set-output name=repo_owner::$($env:GITHUB_REPOSITORY_OWNER.ToLowerInvariant())"
-
       - name: Build and analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
