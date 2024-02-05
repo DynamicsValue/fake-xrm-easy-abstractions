@@ -1,5 +1,5 @@
 param (
-    [string]$targetFrameworks = "netcoreapp3.1"
+    [string]$targetFrameworks = "all"
  )
 
 Write-Host " -> Checking local packages..." -ForegroundColor Yellow
@@ -11,7 +11,6 @@ if($packagesFolderExists)
     Write-Host " -> Deleting previous packages in local packages..." -ForegroundColor Yellow
     Get-ChildItem -Path $localPackagesFolder -Include fakexrmeasy.abstractions* -Directory -Recurse -Force | Remove-Item -Recurse -Force
 }
-./build.ps1 -targetFramework $targetFrameworks
 ./pack-push.ps1 -targetFrameworks $targetFrameworks -versionSuffix "zlocal"
 
 
