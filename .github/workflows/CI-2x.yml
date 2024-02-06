@@ -126,7 +126,7 @@ jobs:
           NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
 
       - name: Push Src
-        run: nuget.exe push .\nupkgs\FakeXrmEasy.Abstractions.*.nupkg -Source ${{ env.source-url }}
+        run: dotnet nuget push .\nupkgs\FakeXrmEasy.Abstractions.*.nupkg -s github
         env: 
           NUGET_USERNAME: ${{github.repository_owner}}
           NUGET_AUTH_TOKEN: ${{ github.token }}
@@ -139,7 +139,7 @@ jobs:
           NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
 
       - name: Push Tests
-        run: nuget.exe push .\nupkgs\FakeXrmEasy.AbstractionsTests.*.nupkg -Source ${{ env.source-url }}
+        run: dotnet nuget push .\nupkgs\FakeXrmEasy.AbstractionsTests.*.nupkg -s github
         env: 
           NUGET_USERNAME: ${{github.repository_owner}}
           NUGET_AUTH_TOKEN: ${{ github.token }}
