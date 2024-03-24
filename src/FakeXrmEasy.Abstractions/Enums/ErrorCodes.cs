@@ -1,7 +1,7 @@
 ﻿namespace FakeXrmEasy.Abstractions
 {
     /// <summary>
-    /// All Error Codes
+    /// All Error Codes that can be raised via a SDK dataverse/crmserviceclient call. The full list can be found at this link: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/reference/web-service-error-codes
     /// </summary>
     public enum ErrorCodes
     {
