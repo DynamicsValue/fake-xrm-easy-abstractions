@@ -2,7 +2,7 @@
 
 ### Changed
 
-- Minor updates to support the newer versions
+- Upgraded dependency of DataverseClient to 1.1.22
 
 ## [3.4.0]
 
