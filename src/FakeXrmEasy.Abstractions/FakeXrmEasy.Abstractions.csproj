@@ -7,7 +7,7 @@
     <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY_2013'">net6.0</TargetFrameworks>
     <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY'">net6.0</TargetFrameworks>
     <PackageId>FakeXrmEasy.Abstractions</PackageId>
-    <VersionPrefix>3.4.0</VersionPrefix>
+    <VersionPrefix>3.5.0</VersionPrefix>
     <Authors>Jordi Montaña</Authors>
     <Company>Dynamics Value</Company>
     <Title>FakeXrmEasy Abstractions</Title>
@@ -23,7 +23,7 @@
     <AssemblyOriginatorKeyFile>..\..\fakexrmeasy.snk</AssemblyOriginatorKeyFile>
 		<SignAssembly>True</SignAssembly>
     <PublicSign Condition="'$(OS)'=='Unix'">true</PublicSign>
-  </PropertyGroup>
+   </PropertyGroup>
 
   <ItemGroup>
     <None Include="../../LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)" />
@@ -31,8 +31,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.PowerPlatform.Dataverse.Client" Version="1.0.39" />
-    <PackageReference Include="Microsoft.PowerPlatform.Dataverse.Client.Dynamics" Version="1.0.39" />
+    <PackageReference Include="Microsoft.PowerPlatform.Dataverse.Client" Version="1.1.22" />
+    <PackageReference Include="Microsoft.PowerPlatform.Dataverse.Client.Dynamics" Version="1.1.22" />
   </ItemGroup>
 
    <Target Name="PreparePackageReleaseNotesFromFile" BeforeTargets="GenerateNuspec">
