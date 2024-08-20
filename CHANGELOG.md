@@ -1,3 +1,9 @@
+## [2.6.0]
+
+### Added
+- 
+- Add new method to Initialize Files to support InMemory File Db - https://github.com/DynamicsValue/fake-xrm-easy/issues/157
+
 ## [2.5.0]
 
 ### Changed
