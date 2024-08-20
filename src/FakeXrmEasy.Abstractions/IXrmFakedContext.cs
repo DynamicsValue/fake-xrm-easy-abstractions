@@ -208,10 +208,12 @@ namespace FakeXrmEasy.Abstractions
         /// <returns>An early-bound record dif the context is already using early-bound entity records, a late bound entity otherwise</returns>
         Entity NewEntityRecord(string logicalName);
         
+        #if FAKE_XRM_EASY_9
         /// <summary>
         /// Initializes the context with a given state of pre-existing file uploads
         /// </summary>
         /// <param name="files">The list of files used to initialise the In-Memory File Storage. InitializeMetadata and Initialize must have been called prior to calling this method.</param>
         void InitializeFiles(IEnumerable<IFileAttachment> files);
+        #endif
     }
 }
