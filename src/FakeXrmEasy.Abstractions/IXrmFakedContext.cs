@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using FakeXrmEasy.Abstractions.FileStorage;
 
 namespace FakeXrmEasy.Abstractions
 {
@@ -206,5 +207,11 @@ namespace FakeXrmEasy.Abstractions
         /// <param name="logicalName">The entity logical name of the entity</param>
         /// <returns>An early-bound record dif the context is already using early-bound entity records, a late bound entity otherwise</returns>
         Entity NewEntityRecord(string logicalName);
+        
+        /// <summary>
+        /// Initializes the context with a given state of pre-existing file uploads
+        /// </summary>
+        /// <param name="files">The list of files used to initialise the In-Memory File Storage. InitializeMetadata and Initialize must have been called prior to calling this method.</param>
+        void InitializeFiles(IEnumerable<IFileAttachment> files);
     }
 }
