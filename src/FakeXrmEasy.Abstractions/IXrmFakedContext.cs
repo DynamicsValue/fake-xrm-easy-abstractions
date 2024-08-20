@@ -211,7 +211,7 @@ namespace FakeXrmEasy.Abstractions
         /// <summary>
         /// Initializes the context with a given state of pre-existing file uploads
         /// </summary>
-        /// <param name="files">The list of files used to initialised the In-Memory File Storage. InitializeMetadata and Initialize must have been called prior to calling this method.</param>
+        /// <param name="files">The list of files used to initialise the In-Memory File Storage. InitializeMetadata and Initialize must have been called prior to calling this method.</param>
         void InitializeFiles(IEnumerable<IFileAttachment> files);
     }
 }
