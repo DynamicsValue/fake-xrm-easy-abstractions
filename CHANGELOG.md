@@ -1,8 +1,14 @@
-## [2.5.1]
+## [2.6.1]
 
 ### Added
 
 - Added the IsHierarchical property to XrmFakedRelationship in order to support AboveOrEqual condition expressions in FakeXrmEasy.Core
+
+## [2.6.0]
+
+### Added
+- 
+- Add new method to Initialize Files to support InMemory File Db - https://github.com/DynamicsValue/fake-xrm-easy/issues/157
 
 ## [2.5.0]
 
