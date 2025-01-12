@@ -82,8 +82,9 @@ namespace FakeXrmEasy.Abstractions
         /// Create Entity
         /// </summary>
         /// <param name="e"></param>
+        /// <param name="isUpsert">To know if the record is being created as part of an upsert operation</param>
         /// <returns></returns>
-        Guid CreateEntity(Entity e);
+        Guid CreateEntity(Entity e, bool isUpsert = false);
 
         /// <summary>
         /// Update Entity
