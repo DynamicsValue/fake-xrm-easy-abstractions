@@ -1,3 +1,13 @@
+## [3.6.0]
+
+### Changed
+
+- Added extra parameter to definition of CreateEntity to know whether a record is being created from a Create or Upsert message. - https://github.com/DynamicsValue/fake-xrm-easy/issues/172
+
+### Added
+
+- Add new method to Initialize Files to support InMemory File Db - https://github.com/DynamicsValue/fake-xrm-easy/issues/157
+
 ## [3.5.0]
 
 ### Changed

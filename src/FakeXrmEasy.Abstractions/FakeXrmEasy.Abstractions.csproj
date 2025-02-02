@@ -7,7 +7,7 @@
     <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY_2013'">net6.0</TargetFrameworks>
     <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY'">net6.0</TargetFrameworks>
     <PackageId>FakeXrmEasy.Abstractions</PackageId>
-    <VersionPrefix>3.5.0</VersionPrefix>
+    <VersionPrefix>3.6.0</VersionPrefix>
     <Authors>Jordi Montaña</Authors>
     <Company>Dynamics Value</Company>
     <Title>FakeXrmEasy Abstractions</Title>
