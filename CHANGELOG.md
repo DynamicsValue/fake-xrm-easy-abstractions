@@ -1,3 +1,9 @@
+## [2.6.1]
+
+### Added
+
+- Added the IsHierarchical property to XrmFakedRelationship in order to support AboveOrEqual condition expressions in FakeXrmEasy.Core
+
 ## [2.6.0]
 
 ### Changed

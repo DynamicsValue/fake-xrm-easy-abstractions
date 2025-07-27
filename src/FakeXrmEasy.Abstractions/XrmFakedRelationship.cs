@@ -62,6 +62,11 @@ namespace FakeXrmEasy.Abstractions
         }
 
         /// <summary>
+        /// Specifies if relationship is Hierachical or not.
+        /// </summary>
+        public bool IsHierarchical { get; set; }
+
+        /// <summary>
         /// Relationship Type
         /// </summary>
         public enum FakeRelationshipType
@@ -87,6 +92,7 @@ namespace FakeXrmEasy.Abstractions
         public XrmFakedRelationship()
         {
             RelationshipType = FakeRelationshipType.ManyToMany;
+            IsHierarchical = false;
         }
 
         /// <summary>
@@ -105,6 +111,7 @@ namespace FakeXrmEasy.Abstractions
             Entity1LogicalName = entity1LogicalName;
             Entity2LogicalName = entity2LogicalName;
             RelationshipType = FakeRelationshipType.ManyToMany;
+            IsHierarchical = false;
         }
 
         /// <summary>
@@ -114,13 +121,15 @@ namespace FakeXrmEasy.Abstractions
         /// <param name="entity2Attribute"></param>
         /// <param name="entity1LogicalName"></param>
         /// <param name="entity2LogicalName"></param>
-        public XrmFakedRelationship(string entity1Attribute, string entity2Attribute, string entity1LogicalName, string entity2LogicalName)
+        /// <param name="isHierarchical"></param>
+        public XrmFakedRelationship(string entity1Attribute, string entity2Attribute, string entity1LogicalName, string entity2LogicalName, bool isHierarchical = false)
         {
             Entity1Attribute = entity1Attribute;
             Entity2Attribute = entity2Attribute;
             Entity1LogicalName = entity1LogicalName;
             Entity2LogicalName = entity2LogicalName;
             RelationshipType = FakeRelationshipType.OneToMany;
-        }
+            IsHierarchical = isHierarchical;
+        }        
     }
 }
