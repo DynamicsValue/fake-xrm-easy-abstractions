@@ -9,7 +9,7 @@ on:
       - '*.txt'
 
 env: 
-  dotnet-version: 3.1.201
+  dotnet-version:  8.0.x
   source-url: "https://nuget.pkg.github.com/${{github.repository_owner}}/index.json"
 
 jobs:
@@ -22,10 +22,10 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: Setup .NET Core for Actual Source
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v4
       with:
         dotnet-version: ${{ env.dotnet-version }}
  
@@ -46,7 +46,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Set up JDK 17
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
@@ -54,14 +54,14 @@ jobs:
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
       - name: Cache SonarCloud packages
-        uses: actions/cache@v1
+        uses: actions/cache@v4
         with:
           path: ~\sonar\cache
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
       - name: Cache SonarCloud scanner
         id: cache-sonar-scanner
-        uses: actions/cache@v1
+        uses: actions/cache@v4
         with:
           path: .\.sonar\scanner
           key: ${{ runner.os }}-sonar-scanner
@@ -89,10 +89,6 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: powershell
         run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"${{ vars.SONAR_PROJECT_PREFIX }}_fake-xrm-easy-abstractions" /o:"${{ vars.SONAR_ORG_NAME }}" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.verbose="true" /d:sonar.qualitygate.wait="true" /d:sonar.cs.opencover.reportsPaths='"coverage/**/coverage.opencover.xml"' /d:sonar.coverage.exclusions='"tests/**/**"'
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"${{ vars.SONAR_PROJECT_PREFIX }}_fake-xrm-easy-abstractions" /o:"${{ vars.SONAR_ORG_NAME }}" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.verbose="true" /d:sonar.qualitygate.wait="true" /d:sonar.cs.opencover.reportsPaths='"coverage/**/coverage.opencover.xml"' /d:sonar.coverage.exclusions='"tests/**/**"'
           .\build.ps1 -configuration FAKE_XRM_EASY_9 -targetFrameworks 'all'
-          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
-    
-    
-    
-    
+          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"

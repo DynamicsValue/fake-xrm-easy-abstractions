@@ -1,3 +1,7 @@
+## [3.8.0]
+
+- Upgraded version for consistency
+
 ## [3.6.0]
 
 ### Changed
