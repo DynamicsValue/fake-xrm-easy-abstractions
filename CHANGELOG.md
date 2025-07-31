@@ -1,5 +1,7 @@
 ## [3.8.0]
 
+- Changed targetframework to net8.0
+- Upgraded DataverseClient to 1.2.9 
 - Upgraded version for consistency
 
 ## [3.6.0]
