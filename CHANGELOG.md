@@ -1,3 +1,7 @@
+## [2.9.0]
+
+- Upgraded version for new aggregations functionality
+
 ## [2.8.0]
 
 - Upgraded version for consistency
