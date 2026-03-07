@@ -1,3 +1,7 @@
+## [3.9.0]
+
+- Upgraded version for new aggregations functionality
+
 ## [3.8.0]
 
 - Changed targetframework to net8.0
