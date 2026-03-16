@@ -1,3 +1,8 @@
+## [2.9.0]
+
+- Upgrade CrmSdk coreassemblies version - https://github.com/DynamicsValue/fake-xrm-easy/issues/217
+- Upgraded version for new aggregations functionality
+
 ## [2.8.0]
 
 - Upgraded version for consistency
