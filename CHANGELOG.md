@@ -1,10 +1,41 @@
+## [2.9.1]
+
+### Changed
+
+- Added net48 as the target framework along with net462 - https://github.com/DynamicsValue/fake-xrm-easy/issues/233
+
+## [2.9.0]
+
+- Upgrade CrmSdk coreassemblies version - https://github.com/DynamicsValue/fake-xrm-easy/issues/217
+- Upgraded version for new aggregations functionality
+
+## [2.8.0]
+
+- Upgraded version for consistency
+
+## [2.6.0]
+
+### Changed
+
+- Added extra parameter to definition of CreateEntity to know whether a record is being created from a Create or Upsert message. - https://github.com/DynamicsValue/fake-xrm-easy/issues/172
+
+### Added
+
+- Add new method to Initialize Files to support InMemory File Db - https://github.com/DynamicsValue/fake-xrm-easy/issues/157
+
+## [2.5.0]
+
+### Changed
+
+- Upgraded CoreAssemblies package for v9 versions with latest version
+
 ## [2.4.0]
 
-## Added
+### Added
 
 - **Alpha**: Introduced subscription usage monitoring based on customer feedback
 
-## Changed
+### Changed
 
 - Set default build configuration in solution file to FAKE_XRM_EASY_9
 - build.ps1 improvements: do not build project twice (added --no-build) when running dotnet test, do not build again either when packing assemblies either: https://github.com/DynamicsValue/fake-xrm-easy/issues/119
