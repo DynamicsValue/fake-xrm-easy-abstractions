@@ -1,3 +1,9 @@
+## [2.9.2]
+
+### Changed
+
+- Increment version to prevent package downgrade errors
+
 ## [2.9.1]
 
 ### Changed
