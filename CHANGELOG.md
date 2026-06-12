@@ -1,3 +1,10 @@
+## [2.9.2]
+
+### Changed
+
+- Added .net framework reference assemblies - https://github.com/DynamicsValue/fake-xrm-easy/issues/249
+- Increment version to prevent package downgrade errors
+
 ## [2.9.1]
 
 ### Changed
