@@ -2,6 +2,7 @@
 
 ### Changed
 
+- Upgrade coverlet to latest
 - Increment version
 
 ## [3.9.3]
