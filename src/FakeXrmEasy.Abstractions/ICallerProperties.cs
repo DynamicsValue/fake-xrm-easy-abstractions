@@ -15,5 +15,10 @@ namespace FakeXrmEasy.Abstractions
         /// Default BusinessUnit
         /// </summary>
         EntityReference BusinessUnitId { get; set; }
+        
+        /// <summary>
+        /// Id of the SYSTEM account (i.e. https://learn.microsoft.com/en-us/dotnet/api/microsoft.xrm.sdk.iorganizationservicefactory.createorganizationservice?view=dataverse-sdk-latest)
+        /// </summary>
+        EntityReference SystemUserId { get; set; }
     }
 }
