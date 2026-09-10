@@ -56,6 +56,7 @@ else
 if(!($LASTEXITCODE -eq 0)) {
     throw "Error during build step"
 }
+
 Write-Host " -> Testing: configuration='$($configuration)', targetFramework='$($targetFrameworks)' PackTests=$($packTests)" -ForegroundColor Yellow
 if($targetFrameworks -eq "all")
 {
@@ -66,6 +67,8 @@ else
 {
     dotnet test --configuration $configuration --no-build --framework $targetFrameworks --verbosity normal /p:PackTests=$packTests --collect:"XPlat code coverage" --settings tests/.runsettings --results-directory ./coverage
 }
+
+
 
 if(!($LASTEXITCODE -eq 0)) {
     throw "Error during test step"
