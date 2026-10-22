@@ -2,6 +2,7 @@
 
 ### Changed
 
+- Upgraded Microsoft.PowerPlatform.Dataverse.Client to latest 1.2.27 to support .net10.0 - https://github.com/DynamicsValue/fake-xrm-easy/issues/282
 - Increment version
 
 ## [3.9.5]
