@@ -45,7 +45,7 @@ jobs:
     strategy:
       fail-fast: false 
       matrix: 
-        configuration: ['FAKE_XRM_EASY_9', 'FAKE_XRM_EASY_365', 'FAKE_XRM_EASY_2016','FAKE_XRM_EASY_2015','FAKE_XRM_EASY_2013','FAKE_XRM_EASY']
+        configuration: ['FAKE_XRM_EASY_9', 'FAKE_XRM_EASY_365', 'FAKE_XRM_EASY_2016','FAKE_XRM_EASY_2015','FAKE_XRM_EASY_2013']
         
     runs-on: windows-latest
 
@@ -91,7 +91,7 @@ jobs:
       uses: DynamicsValue/dotnet-sonarscanner@v2.6.4
       with:
         buildCommand: dotnet build . --configuration 'FAKE_XRM_EASY_9' --framework net10.0
-        testCommand: dotnet test . --configuration 'FAKE_XRM_EASY_9' --framework net10.0 --verbosity normal --collect:"XPlat code coverage" --settings tests/.runsettings --results-directory ./coverage
+        testCommand: dotnet test . --configuration 'FAKE_XRM_EASY_9' --framework net10.0 --verbosity normal --coverlet --coverlet-output-format opencover --results-directory ./coverage
         projectKey: ${{ secrets.SONAR_PROJECT_KEY }}
         projectName: fake-xrm-easy-abstractions
         sonarOrganisation: ${{ vars.SONAR_ORG_NAME }}

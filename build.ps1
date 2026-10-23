@@ -23,6 +23,8 @@ if($restoredPackagesFolderExists)
     Get-ChildItem -Path $restoredPackagesFolder -Include fakexrmeasy.* -Directory -Recurse -Force | Remove-Item -Recurse -Force
 }
 
+$env:DOTNET_NOLOGO = "true"
+
 Write-Host " -> Cleaning..." -ForegroundColor Yellow
 ./clean.ps1 -folderPath "./src/FakeXrmEasy.Abstractions/bin"
 ./clean.ps1 -folderPath "./src/FakeXrmEasy.Abstractions/obj"
@@ -54,18 +56,19 @@ else
 }
 
 if(!($LASTEXITCODE -eq 0)) {
+    Write-Host " -> Error code='$($LASTEXITCODE)'" -ForegroundColor Red
     throw "Error during build step"
 }
 
 Write-Host " -> Testing: configuration='$($configuration)', targetFramework='$($targetFrameworks)' PackTests=$($packTests)" -ForegroundColor Yellow
 if($targetFrameworks -eq "all")
 {
-    dotnet test --configuration $configuration --no-build --verbosity normal /p:PackTests=$packTests --collect:"XPlat code coverage" --settings tests/.runsettings --results-directory ./coverage
+    dotnet test --configuration $configuration --no-build --verbosity normal /p:PackTests=$packTests --coverlet --coverlet-output-format opencover --results-directory ./coverage
 
 }
 else 
 {
-    dotnet test --configuration $configuration --no-build --framework $targetFrameworks --verbosity normal /p:PackTests=$packTests --collect:"XPlat code coverage" --settings tests/.runsettings --results-directory ./coverage
+    dotnet test --configuration $configuration --no-build --framework $targetFrameworks --verbosity normal /p:PackTests=$packTests --coverlet --coverlet-output-format opencover --results-directory ./coverage
 }
 
 
