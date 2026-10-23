@@ -23,6 +23,8 @@ if($restoredPackagesFolderExists)
     Get-ChildItem -Path $restoredPackagesFolder -Include fakexrmeasy.* -Directory -Recurse -Force | Remove-Item -Recurse -Force
 }
 
+$env:DOTNET_NOLOGO = "true"
+
 Write-Host " -> Cleaning..." -ForegroundColor Yellow
 ./clean.ps1 -folderPath "./src/FakeXrmEasy.Abstractions/bin"
 ./clean.ps1 -folderPath "./src/FakeXrmEasy.Abstractions/obj"
@@ -54,6 +56,7 @@ else
 }
 
 if(!($LASTEXITCODE -eq 0)) {
+    Write-Host " -> Error code='$($LASTEXITCODE)'" -ForegroundColor Red
     throw "Error during build step"
 }
 
