@@ -1,5 +1,7 @@
 ## [3.10.0]
 
+### Changed 
+
 - Extends XrmFakedRelationship with IsHierachichal property - https://github.com/DynamicsValue/fake-xrm-easy/issues/147
 - Increment version
 
